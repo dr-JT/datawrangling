@@ -10,7 +10,7 @@
 #' trim(x, variables = c(), cutoff = 3.5)
 
 trim <- function(x, variables = c(), cutoff = 3.5){
-  x <- zscore(x, subset = variables)
+  x <- center(x, variables = variables, standardized = TRUE)
   for (i in variables){
     zscored <- paste(i, "_z", sep = "")
     x <- dplyr::mutate(x, filtered = ifelse(get(zscored)>cutoff,NA,ifelse(get(zscored)<(cutoff*-1),NA,get(i))))
