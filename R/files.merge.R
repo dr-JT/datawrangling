@@ -18,7 +18,7 @@ files.merge <- function(path = "", pattern = "", delim = "\t", na = "", output.f
   }
   merged <- dplyr::bind_rows(merged)
 
-  if (output.folder!=""){
+  if (output.file!=""){
     readr::write_delim(merged, path = output.file, delim, na = na)
   }
 
