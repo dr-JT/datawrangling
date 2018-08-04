@@ -4,8 +4,8 @@
 \alias{files.merge}
 \title{A Data Transformation Function}
 \usage{
-files.merge(path = "", pattern = "", delim = "\\t", na = "NA",
-  output.folder = "")
+files.merge(path = "", pattern = "", delim = "\\t", na = "",
+  output.file = "")
 }
 \arguments{
 \item{path}{Folder location of files to be merged}
@@ -15,6 +15,8 @@ files.merge(path = "", pattern = "", delim = "\\t", na = "NA",
 \item{delim}{Delimiter used in files to be merged}
 
 \item{na}{How are missing values defined in files to be merged}
+
+\item{output.file}{File name and path to be saved}
 }
 \description{
 This function merges files of the same data structure
