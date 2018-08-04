@@ -5,11 +5,12 @@
 #' @param pattern Pattern to identify files to be merged
 #' @param delim Delimiter used in files to be merged
 #' @param na How are missing values defined in files to be merged
+#' @param output.file File name and path to be saved
 #' @export
 #' @examples
 #' files.merge(path = "./Data", pattern = ".txt")
 
-files.merge <- function(path = "", pattern = "", delim = "\t", na = "NA", output.folder = ""){
+files.merge <- function(path = "", pattern = "", delim = "\t", na = "", output.file = ""){
   filelist <- list.files(path = path, pattern = pattern, full.names = TRUE)
   merged <- list()
   for (i in 1:length(filelist)){
@@ -18,7 +19,7 @@ files.merge <- function(path = "", pattern = "", delim = "\t", na = "NA", output
   merged <- dplyr::bind_rows(merged)
 
   if (output.folder!=""){
-    readr::write_delim(merged, path = output.folder, delim, na = na)
+    readr::write_delim(merged, path = output.file, delim, na = na)
   }
 
   return(merged)
