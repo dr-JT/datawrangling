@@ -56,3 +56,4 @@ center <- function(x, variables = c(colnames(x)), context = "", standardized = F
   x <- x[,!(names(x) %in% c("get(context)", "get(context[1])", "get(context[2])", "get(context[3])"))]
   return(x)
 }
+
