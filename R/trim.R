@@ -15,7 +15,7 @@ trim <- function(x, variables = c(), cutoff = 3.5){
     zscored <- paste(i, "_z", sep = "")
     x <- dplyr::mutate(x, filter = ifelse(get(zscored)>cutoff,NA,ifelse(get(zscored)<(cutoff*-1),NA,get(i))))
     x[i] <- x["filter"]
-    x <- dplyr::select(x, -dplyr::matches(zscored))
+    x <- dplyr::select(x, -(zscored))
   }
   x <- dplyr::select(x, -filter)
 }
