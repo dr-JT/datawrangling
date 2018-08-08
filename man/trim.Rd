@@ -14,6 +14,8 @@ trim(x, variables = c(), cutoff = 3.5, context = "", replace = "NA")
 \item{cutoff}{zscore cutoff to use for trimming (default: 3.5)}
 
 \item{context}{Name of column to group by}
+
+\item{replace}{What value should the trimmed values be replaced with. (default: replace = "NA")}
 }
 \description{
 This function will trim a variable(s) based on a zscore cutoff

@@ -5,6 +5,7 @@
 #' @param variables variables c() to be trimmed
 #' @param cutoff zscore cutoff to use for trimming (default: 3.5)
 #' @param context Name of column to group by
+#' @param replace What value should the trimmed values be replaced with. (default: replace = "NA")
 #' @keywords trim
 #' @export
 #' @examples
