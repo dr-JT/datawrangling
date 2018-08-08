@@ -18,4 +18,5 @@ trim <- function(x, variables = c(), cutoff = 3.5, context = ""){
     x <- dplyr::select(x, -(zscored), -(i))
     colnames(x)[which(colnames(x)=="filter")] <- i
   }
+  return(x)
 }
