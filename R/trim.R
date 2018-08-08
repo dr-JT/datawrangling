@@ -30,10 +30,13 @@ trim <- function(x, variables = c(), cutoff = 3.5, context = "", replace = "NA")
       if (context!=""){
         if (length(context)==1){
           x <- dplyr::group_by(x, get(context))
+          zscored <- paste(i, "_zwc", sep = "")
         } else if (length(context)==2){
           x <- dplyr::group_by(x, get(context[1]), get(context[2]))
+          zscored <- paste(i, "_zwc", sep = "")
         } else if (length(context)==3){
           x <- dplyr::group_by(x, get(context[1]), get(context[2]), get(context[3]))
+          zscored <- paste(i, "_zwc", sep = "")
         }
       }
       x <- dplyr::mutate(x,
