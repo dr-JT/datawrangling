@@ -4,7 +4,7 @@
 \alias{trim}
 \title{A Data Transformation Function}
 \usage{
-trim(x, variables = c(), cutoff = 3.5)
+trim(x, variables = c(), cutoff = 3.5, context = "")
 }
 \arguments{
 \item{x}{dataframe}
@@ -12,6 +12,8 @@ trim(x, variables = c(), cutoff = 3.5)
 \item{variables}{variables c() to be trimmed}
 
 \item{cutoff}{zscore cutoff to use for trimming (default: 3.5)}
+
+\item{context}{Name of column to group by}
 }
 \description{
 This function will trim a variable(s) based on a zscore cutoff
