@@ -10,13 +10,40 @@
 #' @examples
 #' trim(x, variables = c(), cutoff = 3.5)
 
-trim <- function(x, variables = c(), cutoff = 3.5, context = ""){
+trim <- function(x, variables = c(), cutoff = 3.5, context = "", replace = "NA"){
   x <- center(x, variables = variables, standardized = TRUE, context = context)
-  for (i in variables){
-    zscored <- paste(i, "_z", sep = "")
-    x <- dplyr::mutate(x, filter = ifelse(get(zscored)>cutoff,NA,ifelse(get(zscored)<(cutoff*-1),NA,get(i))))
-    x <- dplyr::select(x, -(zscored), -(i))
-    colnames(x)[which(colnames(x)=="filter")] <- i
+
+  if (replace=="NA") {
+    for (i in variables){
+      zscored <- paste(i, "_z", sep = "")
+      x <- dplyr::mutate(x, placeholder = ifelse(get(zscored) > cutoff, NA,
+                                                 ifelse(get(zscored) < (cutoff*-1), NA, get(i))))
+      x <- dplyr::select(x, -(zscored), -(i))
+      colnames(x)[which(colnames(x)=="placeholder")] <- i
+    }
+  }
+
+  if (replace=="cutoff") {
+    for (i in variables){
+      zscored <- paste(i, "_z", sep = "")
+      if (context!=""){
+        if (length(context)==1){
+          x <- dplyr::group_by(x, get(context))
+        } else if (length(context)==2){
+          x <- dplyr::group_by(x, get(context[1]), get(context[2]))
+        } else if (length(context)==3){
+          x <- dplyr::group_by(x, get(context[1]), get(context[2]), get(context[3]))
+        }
+      }
+      x <- dplyr::mutate(x,
+                         placeholder = get(zscored),
+                         placeholder.mean = mean(get(i), na.rm = TRUE),
+                         placeholder.sd = sd(get(i), na.rm = TRUE),
+                         placeholder = ifelse(placeholder > cutoff, placeholder.mean + (placeholder.sd*cutoff),
+                                              ifelse(placeholder < (cutoff*-1), placeholder.mean - (placeholder.sd*cutoff), get(i))))
+      x <- dplyr::select(x, -(zscored), -(i), -placeholder.mean, -placeholder.sd)
+      colnames(x)[which(colnames(x)=="placeholder")] <- i
+    }
   }
   return(x)
 }
