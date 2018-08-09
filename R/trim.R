@@ -49,5 +49,6 @@ trim <- function(x, variables = c(), cutoff = 3.5, context = "", replace = "NA")
       colnames(x)[which(colnames(x)=="placeholder")] <- i
     }
   }
+  x <- x[,!(names(x) %in% c("get(context)", "get(context[1])", "get(context[2])", "get(context[3])"))]
   return(x)
 }
