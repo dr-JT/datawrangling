@@ -12,6 +12,7 @@
 #' trim(x, variables = c(), cutoff = 3.5)
 
 trim <- function(x, variables = c(), cutoff = 3.5, context = "", replace = "NA"){
+  col.order <- colnames(x)
   x <- center(x, variables = variables, standardized = TRUE, context = context)
 
   if (replace=="NA") {
@@ -19,7 +20,6 @@ trim <- function(x, variables = c(), cutoff = 3.5, context = "", replace = "NA")
       zscored <- paste(i, "_z", sep = "")
       x <- dplyr::mutate(x, placeholder = ifelse(get(zscored) > cutoff, NA,
                                                  ifelse(get(zscored) < (cutoff*-1), NA, get(i))))
-      x <- dplyr::select(x, -(zscored), -(i))
       colnames(x)[which(colnames(x)=="placeholder")] <- i
     }
   }
@@ -45,10 +45,9 @@ trim <- function(x, variables = c(), cutoff = 3.5, context = "", replace = "NA")
                          placeholder.sd = sd(get(i), na.rm = TRUE),
                          placeholder = ifelse(placeholder > cutoff, placeholder.mean + (placeholder.sd*cutoff),
                                               ifelse(placeholder < (cutoff*-1), placeholder.mean - (placeholder.sd*cutoff), get(i))))
-      x <- dplyr::select(x, -(zscored), -(i), -placeholder.mean, -placeholder.sd)
       colnames(x)[which(colnames(x)=="placeholder")] <- i
     }
   }
-  x <- x[,!(names(x) %in% c("get(context)", "get(context[1])", "get(context[2])", "get(context[3])"))]
+  x <- x[col.order]
   return(x)
 }
