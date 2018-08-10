@@ -2,6 +2,7 @@
 
 export(center)
 export(code.categorical)
+export(composite)
 export(duplicates.remove)
 export(files.merge)
 export(remove.save)
