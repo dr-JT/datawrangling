@@ -20,6 +20,7 @@ trim <- function(x, variables = c(), cutoff = 3.5, context = "", replace = "NA")
       zscored <- paste(i, "_z", sep = "")
       x <- dplyr::mutate(x, placeholder = ifelse(get(zscored) > cutoff, NA,
                                                  ifelse(get(zscored) < (cutoff*-1), NA, get(i))))
+      x <- dplyr::select(x, -(i))
       colnames(x)[which(colnames(x)=="placeholder")] <- i
     }
   }
@@ -45,6 +46,7 @@ trim <- function(x, variables = c(), cutoff = 3.5, context = "", replace = "NA")
                          placeholder.sd = sd(get(i), na.rm = TRUE),
                          placeholder = ifelse(placeholder > cutoff, placeholder.mean + (placeholder.sd*cutoff),
                                               ifelse(placeholder < (cutoff*-1), placeholder.mean - (placeholder.sd*cutoff), get(i))))
+      x <- dplyr::select(x, -(i))
       colnames(x)[which(colnames(x)=="placeholder")] <- i
     }
   }
