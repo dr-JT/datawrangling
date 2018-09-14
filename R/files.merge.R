@@ -13,7 +13,7 @@
 files.merge <- function(path = "", pattern = "", delim = "\t", na = "", output.file = ""){
   filelist <- list.files(path = path, pattern = pattern, full.names = TRUE)
   merged <- list()
-  for (i in 1:length(filelist)){
+  for (i in seq_along(filelist)){
     merged[[i]] <- readr::read_delim(filelist[[i]], delim, escape_double = FALSE, trim_ws = TRUE, na = na)
   }
   merged <- dplyr::bind_rows(merged)
