@@ -10,13 +10,13 @@
 #' @examples
 #' remove.save(data, remove = data_remove, save = "data/remove", taskname = "Flanker")
 
-remove.save <- function(x, remove = "", output = "") {
+remove.save <- function(x, remove, output = NULL) {
   if (nrow(remove)>0){
     dir.create(save, showWarnings = FALSE)
-    write_delim(remove, path = output, delim = "\t", na = "")
+    readr::write_delim(remove, path = output, delim = "\t", na = "")
     subj.remove <- unique(remove$Subject)
     ## Remove them!
-    x <- filter(x, !(Subject %in% subj.remove))
+    x <- dplyr::filter(x, !(Subject %in% subj.remove))
   }
   return(x)
 }
