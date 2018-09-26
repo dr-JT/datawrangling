@@ -4,16 +4,14 @@
 \alias{remove.save}
 \title{A Data Transformation Function}
 \usage{
-remove.save(x, remove = "", save = "", taskname = "")
+remove.save(x, remove = "", output = "")
 }
 \arguments{
 \item{x}{dataframe}
 
 \item{remove}{the dataframe that contains subjects to be removed}
 
-\item{save}{folder directory path to save removed data}
-
-\item{taskname}{used to name the file}
+\item{output}{folder directory path to save removed data}
 }
 \description{
 This function centers a variable around the mean. A new column will be created with the
