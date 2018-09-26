@@ -31,8 +31,6 @@ reshape.gather(x, variable.name, values, id = NULL,
 
 \item{id}{What column is not being reorganized and needs to be preserved. Usually "Subject"}
 
-\item{separate.into}{Passed to spread() fill parameter}
-
 \item{separate.pattern}{stuff}
 }
 \description{
