@@ -47,5 +47,9 @@ reshape.gather <- function(x, variable.names, values, id = NULL, separate.patter
   if (!is.null(separate.into)){
     x <- tidyr::separate(x, variable.names, into = separate.into, sep = separate.pattern)
   }
+
+  if (!is.null(id)){
+    x <- dplyr::arrange(x, dplyr::desc(get(id)))
+  }
   return(x)
 }
