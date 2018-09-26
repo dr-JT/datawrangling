@@ -10,7 +10,7 @@
 #' @param id What column is not being reorganized and needs to be preserved. Usually "Subject"
 #' @param fill Passed to spread() fill parameter
 #' @variableswords reshape
-#' @export
+#' @export spread.long
 #' @examples
 #' spread.long(x, variables = "variable", values = c("value1", "value2"), by = "Subject")
 
