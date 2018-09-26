@@ -14,11 +14,10 @@
 #' @examples
 #' spread.long(x, variables = "variable", values = c("value1", "value2"), by = "Subject")
 
-spread.long <- function(x, variables = "", variables_combine.name = "", variables_combine.sep = "", values = c(), id = "", fill = NA){
+spread.long <- function(x, variables = "", variables_combine.sep = "_", values = c(), id = "", fill = NA){
   if (length(variables)>1){
     x <- tidyr::unite(x, placeholder, variables, sep = variables_combine.sep)
-    colnames(x)[which(colnames(x)=="placeholder")] <- variables_combine.name
-    variables <- variables_combine.name
+    variables <- "placeholder"
   }
   if (id==""){
     y <- list()
