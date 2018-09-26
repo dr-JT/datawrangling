@@ -49,7 +49,7 @@ reshape.gather <- function(x, variable.names, values, id = NULL, separate.patter
   }
 
   if (!is.null(id)){
-    x <- dplyr::arrange(x, dplyr::desc(get(id)))
+    x <- dplyr::arrange(x, get(id))
   }
   return(x)
 }
