@@ -23,6 +23,12 @@ remove.latent <- function(x, factor.list, missing.allowed, id, output.removed = 
     colnames(x.remove)[which(colnames(x.remove)=="missing")] <- paste(factor, "missing", sep = ".")
   }
   x <- dplyr::select(x, id, dplyr::contains("missing"))
-  x <- remove.save(x, x.remove, save = output.removed)
+
+  if (is.null(output.removed)){
+    subj.remove <- unique(x.remove$Subject)
+    x <- dplyr::filter(x, !(Subject %in% subj.remove))
+  } else {
+    x <- remove.save(x, x.remove, save = output.removed)
+  }
   return(x)
 }
