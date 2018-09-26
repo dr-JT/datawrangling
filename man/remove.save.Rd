@@ -4,7 +4,7 @@
 \alias{remove.save}
 \title{A Data Transformation Function}
 \usage{
-remove.save(x, remove, output = NULL)
+remove.save(x, remove, output.dir = NULL, output.file = NULL)
 }
 \arguments{
 \item{x}{dataframe}

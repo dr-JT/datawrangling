@@ -4,7 +4,8 @@
 \alias{remove.latent}
 \title{A Data Transformation Function}
 \usage{
-remove.latent(x, factor.list, missing.allowed, id, output.removed = NULL)
+remove.latent(x, factor.list, missing.allowed, id, removed.dir = NULL,
+  removed.file = NULL)
 }
 \arguments{
 \item{x}{dataframe}
@@ -15,7 +16,9 @@ remove.latent(x, factor.list, missing.allowed, id, output.removed = NULL)
 
 \item{id}{Subject ID variable}
 
-\item{output.removed}{file path and name to save removed subjects to}
+\item{removed.dir}{file directory to save removed subjects to}
+
+\item{removed.file}{file name to save removed subjects to}
 }
 \description{
 This function will remove subjects based on amount of missing data per latent construct
