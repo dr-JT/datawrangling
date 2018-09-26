@@ -4,7 +4,8 @@
 \alias{center}
 \title{A Data Transformation Function}
 \usage{
-center(x, variables = c(colnames(x)), context = "", standardized = FALSE)
+center(x, variables = c(colnames(x)), context = "",
+  standardized = FALSE)
 }
 \arguments{
 \item{x}{dataframe}

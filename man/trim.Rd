@@ -4,7 +4,8 @@
 \alias{trim}
 \title{A Data Transformation Function}
 \usage{
-trim(x, variables = c(), cutoff = 3.5, context = "", replace = "NA")
+trim(x, variables = c(), cutoff = 3.5, context = "",
+  replace = "NA")
 }
 \arguments{
 \item{x}{dataframe}
