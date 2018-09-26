@@ -12,7 +12,7 @@
 
 remove.save <- function(x, remove, output = NULL) {
   if (nrow(remove)>0){
-    dir.create(save, showWarnings = FALSE)
+    dir.create(output, showWarnings = FALSE)
     readr::write_delim(remove, path = output, delim = "\t", na = "")
     subj.remove <- unique(remove$Subject)
     ## Remove them!
