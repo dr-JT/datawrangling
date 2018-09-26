@@ -4,19 +4,25 @@
 #' @param x dataframe
 #' @param factor.list list of factors and tasks
 #' @param missing.allowed % of tasks allowed to be missing
+#' @param id Subject ID variable
+#' @param output.removed file path and name to save removed subjects to
 #' @keywords remove
 #' @export remove.latent
 #' @examples
 #' remove.latent(x, variables = c(), cutoff = 3.5)
 
-remove.latent <- function(x, factor.list, missing.allowed){
+remove.latent <- function(x, factor.list, missing.allowed, id, output.removed = NULL){
+  x.remove <- x
   for (factor in factor.list){
-    x <- dplyr::mutate(x, missing = 0)
+    x.remove <- dplyr::mutate(x.remove, missing = 0)
     for (task in factor.list[[factor]]){
-      x <- dplyr::mutate(x, missing = ifelse(is.na(get(task)), missing + 1, missing))
+      x.remove <- dplyr::mutate(x.remove, missing = ifelse(is.na(get(task)), missing + 1, missing))
     }
-    x <- dplyr::mutate(x, missing = missing/length(factor.list[[factor]]))
-    x <- dplyr::filter(x, missing > missing.allowed)
+    x.remove <- dplyr::mutate(x.remove, missing = missing/length(factor.list[[factor]]))
+    x.remove <- dplyr::filter(x.remove, missing > missing.allowed)
+    colnames(x.remove)[which(colnames(x.remove)=="missing")] <- paste(factor, "missing", sep = ".")
   }
-  x <- dplyr::mutate(x)
+  x <- dplyr::select(x, id, dplyr::contains("missing"))
+  x <- remove.save(x, x.remove, save = output.removed)
+  return(x)
 }
