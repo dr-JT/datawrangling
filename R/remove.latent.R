@@ -25,7 +25,7 @@ remove.latent <- function(x, factor.list, missing.allowed, id, removed.dir = NUL
   }
   x <- dplyr::select(x, id, dplyr::contains("missing"))
 
-  if (is.null(output.removed)){
+  if (is.null(removed.dir)){
     subj.remove <- unique(x.remove$Subject)
     x <- dplyr::filter(x, !(Subject %in% subj.remove))
   } else {
