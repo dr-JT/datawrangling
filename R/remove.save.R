@@ -13,7 +13,7 @@
 remove.save <- function(x, remove, output.dir = NULL, output.file = NULL) {
   if (nrow(remove)>0){
     dir.create(output.dir, showWarnings = FALSE)
-    readr::write_delim(remove, path = output.fil, delim = "\t", na = "")
+    readr::write_delim(remove, path = paste(output.dir, output.file, sep = "/"), delim = "\t", na = "")
     subj.remove <- unique(remove$Subject)
     ## Remove them!
     x <- dplyr::filter(x, !(Subject %in% subj.remove))
