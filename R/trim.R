@@ -11,14 +11,21 @@
 #' @examples
 #' trim(x, variables = c(), cutoff = 3.5)
 
-trim <- function(x, variables = c(), cutoff = 3.5, context = "", replace = "NA"){
+trim <- function(x, variables, cutoff = 3.5, context = "", replace = "NA", id = ""){
   col.order <- colnames(x)
+  if (variables=="all"){
+    variables <- colnames(x)[which(colnames(x)!=id)]
+  } else {
+    variables <- variables[which(!(variables!=id))]
+  }
+
   x <- center(x, variables = variables, standardized = TRUE, context = context)
 
   if (replace=="NA") {
     for (i in variables){
       zscored <- paste(i, "_z", sep = "")
-      x <- dplyr::mutate(x, placeholder = ifelse(get(zscored) > cutoff, NA,
+      x <- dplyr::mutate(x,
+                         placeholder = ifelse(get(zscored) > cutoff, NA,
                                                  ifelse(get(zscored) < (cutoff*-1), NA, get(i))))
       x <- dplyr::select(x, -(i))
       colnames(x)[which(colnames(x)=="placeholder")] <- i
@@ -50,6 +57,57 @@ trim <- function(x, variables = c(), cutoff = 3.5, context = "", replace = "NA")
       colnames(x)[which(colnames(x)=="placeholder")] <- i
     }
   }
+
+  if (replace=="mean"){
+    for (i in variables){
+      zscored <- paste(i, "_z", sep = "")
+      if (context!=""){
+        if (length(context)==1){
+          x <- dplyr::group_by(x, get(context))
+          zscored <- paste(i, "_zwc", sep = "")
+        } else if (length(context)==2){
+          x <- dplyr::group_by(x, get(context[1]), get(context[2]))
+          zscored <- paste(i, "_zwc", sep = "")
+        } else if (length(context)==3){
+          x <- dplyr::group_by(x, get(context[1]), get(context[2]), get(context[3]))
+          zscored <- paste(i, "_zwc", sep = "")
+        }
+      }
+      x <- dplyr::mutate(x,
+                         placeholder = get(zscored),
+                         placeholder.mean = mean(get(i), na.rm = TRUE),
+                         placeholder = ifelse(placeholder > cutoff, placeholder.mean,
+                                              ifelse(placeholder < (cutoff*-1), placeholder.mean, get(i))))
+      x <- dplyr::select(x, -(i))
+      colnames(x)[which(colnames(x)=="placeholder")] <- i
+    }
+  }
+
+  if (replace=="median"){
+    for (i in variables){
+      zscored <- paste(i, "_z", sep = "")
+      if (context!=""){
+        if (length(context)==1){
+          x <- dplyr::group_by(x, get(context))
+          zscored <- paste(i, "_zwc", sep = "")
+        } else if (length(context)==2){
+          x <- dplyr::group_by(x, get(context[1]), get(context[2]))
+          zscored <- paste(i, "_zwc", sep = "")
+        } else if (length(context)==3){
+          x <- dplyr::group_by(x, get(context[1]), get(context[2]), get(context[3]))
+          zscored <- paste(i, "_zwc", sep = "")
+        }
+      }
+      x <- dplyr::mutate(x,
+                         placeholder = get(zscored),
+                         placeholder.median = median(get(i), na.rm = TRUE),
+                         placeholder = ifelse(placeholder > cutoff, placeholder.median,
+                                              ifelse(placeholder < (cutoff*-1), placeholder.median, get(i))))
+      x <- dplyr::select(x, -(i))
+      colnames(x)[which(colnames(x)=="placeholder")] <- i
+    }
+  }
+
   x <- x[col.order]
   return(x)
 }
