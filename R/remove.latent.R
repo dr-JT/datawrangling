@@ -13,14 +13,14 @@
 
 remove.latent <- function(x, factor.list, missing.allowed, id, output.removed = NULL){
   x.remove <- x
-  for (factor in factor.list){
+  for (f in seq_along(factor.list)){
     x.remove <- dplyr::mutate(x.remove, missing = 0)
-    for (task in factor.list[[factor]]){
+    for (task in factor.list[[f]]){
       x.remove <- dplyr::mutate(x.remove, missing = ifelse(is.na(get(task)), missing + 1, missing))
     }
-    x.remove <- dplyr::mutate(x.remove, missing = missing/length(factor.list[[factor]]))
+    x.remove <- dplyr::mutate(x.remove, missing = missing/length(factor.list[[f]]))
     x.remove <- dplyr::filter(x.remove, missing > missing.allowed)
-    colnames(x.remove)[which(colnames(x.remove)=="missing")] <- paste(factor, "missing", sep = ".")
+    colnames(x.remove)[which(colnames(x.remove)=="missing")] <- paste(names(factor.list[f]), "missing", sep = ".")
   }
   x <- dplyr::select(x, id, dplyr::contains("missing"))
 
