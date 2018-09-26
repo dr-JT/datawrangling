@@ -26,6 +26,7 @@ reshape.gather <- function(x, variable.names, values, id = NULL, separate.patter
       y[[i]] <- dplyr::select(x, contains(values[i]))
       columns <- colnames(y[[i]])[which(colnames(y[[i]])!=id)]
       y[[i]] <- tidyr::gather(y[[i]], key = variable.hold, value = value.hold, columns)
+      y[[i]]$variable.hold <- gsub(paste(".", values[i], sep = ""), "", y[[i]]$variable.hold)
       colnames(y[[i]])[which(colnames(y[[i]])=="variable.hold")] <- variable.names
       colnames(y[[i]])[which(colnames(y[[i]])=="value.hold")] <- values[i]
     }
@@ -36,6 +37,7 @@ reshape.gather <- function(x, variable.names, values, id = NULL, separate.patter
       y[[i]] <- dplyr::select(x, id, contains(values[i]))
       columns <- colnames(y[[i]])[which(colnames(y[[i]])!=id)]
       y[[i]] <- tidyr::gather(y[[i]], key = variable.hold, value = value.hold, columns)
+      y[[i]]$variable.hold <- gsub(paste(".", values[i], sep = ""), "", y[[i]]$variable.hold)
       colnames(y[[i]])[which(colnames(y[[i]])=="variable.hold")] <- variable.names
       colnames(y[[i]])[which(colnames(y[[i]])=="value.hold")] <- values[i]
     }
