@@ -23,9 +23,9 @@ reshape.gather(x, variable.name, values, id = NULL,
 
 \item{separate.pattern}{stuff}
 
-\item{x}{dataframe}
+\item{variable.names}{The variable used for spreading}
 
-\item{variable.name}{The variable used for spreading}
+\item{x}{dataframe}
 
 \item{values}{If using more than one variables column then specify name of a new combined column}
 
