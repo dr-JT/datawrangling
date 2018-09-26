@@ -25,7 +25,8 @@ reshape.gather <- function(x, variable.names, values, id = NULL, separate.patter
     for (i in seq_along(values)){
       y[[i]] <- dplyr::select(x, contains(values[i]))
       columns <- colnames(y[[i]])[which(colnames(y[[i]])!=id)]
-      y[[i]] <- tidyr::gather(y[[i]], key = variable.names, value = values[i], columns)
+      y[[i]] <- tidyr::gather(y[[i]], key = placeholder, value = values[i], columns)
+      colnames(y[[i]])[which(colnames(y[[i]])=="placeholder")] <- variable.names
     }
     x <- plyr::join_all(y, by = variable.names)
   } else {
@@ -33,7 +34,8 @@ reshape.gather <- function(x, variable.names, values, id = NULL, separate.patter
     for (i in seq_along(values)){
       y[[i]] <- dplyr::select(x, id, contains(values[i]))
       columns <- colnames(y[[i]])[which(colnames(y[[i]])!=id)]
-      y[[i]] <- tidyr::gather(y[[i]], key = variable.names, value = values[i], columns)
+      y[[i]] <- tidyr::gather(y[[i]], key = placeholder, value = values[i], columns)
+      colnames(y[[i]])[which(colnames(y[[i]])=="placeholder")] <- variable.names
     }
     x <- plyr::join_all(y, by = c(id, variable.names))
   }
