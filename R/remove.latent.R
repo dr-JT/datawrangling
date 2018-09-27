@@ -13,7 +13,7 @@
 #' remove.latent(x, variables = c(), cutoff = 3.5)
 
 remove.latent <- function(x, factor.list, missing.allowed, id, removed.dir = NULL, removed.file = NULL){
-  x.remove <- dplyr::group_by(x, get(id))
+  x.remove <- x
   for (f in seq_along(factor.list)){
     x.remove <- dplyr::mutate(x.remove, missing = 0)
     for (task in factor.list[[f]]){
