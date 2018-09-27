@@ -13,17 +13,18 @@
 #' remove.latent(x, variables = c(), cutoff = 3.5)
 
 remove.latent <- function(x, factor.list, missing.allowed, id, removed.dir = NULL, removed.file = NULL){
-  x.remove <- x
+  x.remove <- list()
   for (f in seq_along(factor.list)){
-    x.remove <- dplyr::mutate(x.remove, missing = 0)
+    x.remove[[f]] <- dplyr::mutate(x, missing = 0)
     for (task in factor.list[[f]]){
-      x.remove <- dplyr::mutate(x.remove, missing = ifelse(is.na(get(task)), missing + 1, missing))
+      x.remove[[f]] <- dplyr::mutate(x.remove[[f]], missing = ifelse(is.na(get(task)), missing + 1, missing))
     }
-    x.remove <- dplyr::mutate(x.remove, missing = missing/length(factor.list[[f]]))
-    x.remove <- dplyr::filter(x.remove, missing > missing.allowed)
-    colnames(x.remove)[which(colnames(x.remove)=="missing")] <- paste(names(factor.list[f]), "missing", sep = ".")
+    x.remove[[f]] <- dplyr::mutate(x.remove[[f]], missing = missing/length(factor.list[[f]]))
+    x.remove[[f]] <- dplyr::filter(x.remove[[f]], missing > missing.allowed)
+    x.remove[[f]] <- dplyr::select(x.remove[[f]], (id), missing)
+    colnames(x.remove[[f]])[which(colnames(x.remove[[f]])=="missing")] <- paste(names(factor.list[f]), "missing", sep = ".")
   }
-  x.remove <- dplyr::select(x.remove, (id), dplyr::contains("missing"))
+  x.remove <- plyr::join_all(x.remove, by = id, type = "full")
 
   if (is.null(removed.dir)){
     subj.remove <- unique(x.remove$Subject)
