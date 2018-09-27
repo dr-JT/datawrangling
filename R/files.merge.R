@@ -17,7 +17,7 @@ files.merge <- function(path = "", pattern = "", delim = "\t", na = "", output.f
   for (i in seq_along(filelist)){
     import[[i]] <- readr::read_delim(filelist[[i]], delim, escape_double = FALSE, trim_ws = TRUE, na = na)
   }
-  merged <- plyr::join_all(import, by = id)
+  merged <- plyr::join_all(import, by = id, type = "full")
   merged <- merged[, !duplicated(colnames(merged))]
 
   if (output.file!=""){
