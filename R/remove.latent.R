@@ -3,7 +3,7 @@
 #' This function will remove subjects based on amount of missing data per latent construct
 #' @param x dataframe
 #' @param factor.list list of factors and tasks
-#' @param missing.allowed Amount (%) of tasks allowed to be missing
+#' @param missing.allowed Amount of tasks allowed to be missing
 #' @param id Subject ID variable
 #' @param removed.dir file directory to save removed subjects to
 #' @param removed.file file name to save removed subjects to

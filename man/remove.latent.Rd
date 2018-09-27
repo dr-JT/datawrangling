@@ -12,7 +12,7 @@ remove.latent(x, factor.list, missing.allowed, id, removed.dir = NULL,
 
 \item{factor.list}{list of factors and tasks}
 
-\item{missing.allowed}{Amount (%) of tasks allowed to be missing}
+\item{missing.allowed}{Amount of tasks allowed to be missing}
 
 \item{id}{Subject ID variable}
 
