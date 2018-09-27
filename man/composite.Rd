@@ -4,8 +4,8 @@
 \alias{composite}
 \title{A Data Transformation Function}
 \usage{
-composite(x, variables = c(), comp = "mean", standardized = FALSE,
-  name = "", missing.criteria = "")
+composite(x, variables, comp = "mean", standardized = FALSE,
+  name = NULL, missing.allowed = NULL)
 }
 \arguments{
 \item{x}{dataframe}
@@ -16,7 +16,7 @@ composite(x, variables = c(), comp = "mean", standardized = FALSE,
 
 \item{name}{Name of the new composite variable}
 
-\item{missing.criteria}{Criteria for how many variables can having missing values to not add to composite variable}
+\item{missing.allowed}{Criteria for how many variables can having missing values to not add to composite variable}
 
 \item{standardize}{Logical. Do you want to calculate the composite based on standardized (z-score) values? (Default = FALSE)}
 }

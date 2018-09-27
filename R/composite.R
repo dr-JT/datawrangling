@@ -6,13 +6,13 @@
 #' @param comp How the composite should be calculated, i.e. mean or sum. (Default = "mean").
 #' @param standardize Logical. Do you want to calculate the composite based on standardized (z-score) values? (Default = FALSE)
 #' @param name Name of the new composite variable
-#' @param missing.criteria Criteria for how many variables can having missing values to not add to composite variable
+#' @param missing.allowed Criteria for how many variables can having missing values to not add to composite variable
 #' @keywords composite
 #' @export
 #' @examples
 #' composite(x, variable = c(), comp = "mean", name = "name")
 
-composite <- function (x, variables = c(), comp = "mean", standardized = FALSE, name = "", missing.criteria = ""){
+composite <- function (x, variables, comp = "mean", standardized = FALSE, name = NULL, missing.allowed = NULL){
   # Compute z-scores if standardized==TRUE
   if (standardized==TRUE){
     for (variable in colnames(x[variables])){
@@ -35,12 +35,12 @@ composite <- function (x, variables = c(), comp = "mean", standardized = FALSE, 
 
   # If missing criteria is specified, then index for each subject how many of the variables they have missing values on
   # Then set composite to NA if they exceed the missing criteria
-  if (missing.criteria!=""){
+  if (!is.null(missing.allowed)){
     x <- dplyr::mutate(x, Missing = 0)
     for (variable in colnames(x[variables])){
       x <- dplyr::mutate(x, Missing = ifelse(is.na(get(variable)),(Missing+1),(Missing+0)))
     }
-    x <- dplyr::mutate(x, composite = ifelse(Missing>missing.criteria,NA,composite))
+    x <- dplyr::mutate(x, composite = ifelse(Missing>missing.allowed,NA,composite))
   }
 
   # Name composite variable and remove the Missing column
