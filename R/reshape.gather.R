@@ -30,7 +30,7 @@ reshape.gather <- function(x, variable.names, values, id = NULL, separate.patter
       colnames(y[[i]])[which(colnames(y[[i]])=="variable.hold")] <- variable.names
       colnames(y[[i]])[which(colnames(y[[i]])=="value.hold")] <- values[i]
     }
-    x <- plyr::join_all(y, by = variable.names)
+    x <- plyr::join_all(y, by = variable.names, type="full")
   } else {
     y <- list()
     for (i in seq_along(values)){
@@ -41,7 +41,7 @@ reshape.gather <- function(x, variable.names, values, id = NULL, separate.patter
       colnames(y[[i]])[which(colnames(y[[i]])=="variable.hold")] <- variable.names
       colnames(y[[i]])[which(colnames(y[[i]])=="value.hold")] <- values[i]
     }
-    x <- plyr::join_all(y, by = c(id, variable.names))
+    x <- plyr::join_all(y, by = c(id, variable.names), type="full")
   }
 
   if (!is.null(separate.into)){
