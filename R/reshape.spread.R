@@ -26,7 +26,7 @@ reshape.spread <- function(x, variables = "", variables_combine.sep = "_", value
       y[[i]] <- tidyr::spread(y[[i]], key = variables, value = values[i], fill = fill)
       colnames(y[[i]]) <- paste(colnames(y[[i]]), values[i], sep = "_")
     }
-    x <- plyr::join_all(y)
+    x <- plyr::join_all(y, type="full")
   } else {
     y <- list()
     for (i in seq_along(values)){
@@ -35,7 +35,7 @@ reshape.spread <- function(x, variables = "", variables_combine.sep = "_", value
       colnames(y[[i]])[which(colnames(y[[i]])!=id)] <- paste(colnames(y[[i]])[which(colnames(y[[i]])!=id)],
                                                    values[i], sep = "_")
     }
-    x <- plyr::join_all(y, by = id)
+    x <- plyr::join_all(y, by = id, type = "full")
   }
   return(x)
 }
