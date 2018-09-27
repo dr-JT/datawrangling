@@ -18,6 +18,7 @@ files.merge <- function(path = "", pattern = "", delim = "\t", na = "", output.f
     import[[i]] <- readr::read_delim(filelist[[i]], delim, escape_double = FALSE, trim_ws = TRUE, na = na)
   }
   merged <- plyr::join_all(import, by = id)
+  merged <- merged[, !duplicated(colnames(merged))]
 
   if (output.file!=""){
     readr::write_delim(merged, path = output.file, delim, na = na)
