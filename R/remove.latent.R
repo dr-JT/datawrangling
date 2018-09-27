@@ -13,7 +13,7 @@
 #' remove.latent(x, variables = c(), cutoff = 3.5)
 
 remove.latent <- function(x, factor.list, missing.allowed, id, removed.dir = NULL, removed.file = NULL){
-  x.remove <- x
+  x.remove <- dplyr::group_by(x, get(id))
   for (f in seq_along(factor.list)){
     x.remove <- dplyr::mutate(x.remove, missing = 0)
     for (task in factor.list[[f]]){
@@ -23,7 +23,7 @@ remove.latent <- function(x, factor.list, missing.allowed, id, removed.dir = NUL
     x.remove <- dplyr::filter(x.remove, missing > missing.allowed)
     colnames(x.remove)[which(colnames(x.remove)=="missing")] <- paste(names(factor.list[f]), "missing", sep = ".")
   }
-  x <- dplyr::select(x, id, dplyr::contains("missing"))
+  x <- dplyr::select(x, (id), dplyr::contains("missing"))
 
   if (is.null(removed.dir)){
     subj.remove <- unique(x.remove$Subject)
