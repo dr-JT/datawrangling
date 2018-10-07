@@ -8,9 +8,9 @@
 #' @param output.file File name and path to be saved
 #' @export
 #' @examples
-#' files.bindr(path = "./Data", pattern = ".txt")
+#' files.bind(path = "./Data", pattern = ".txt")
 
-files.bindr <- function(path = "", pattern = "", delim = "\t", na = "", output.file = "", bind = "rows"){
+files.bind <- function(path = "", pattern = "", delim = "\t", na = "", output.file = "", bind = "rows"){
   filelist <- list.files(path = path, pattern = pattern, full.names = TRUE)
   import <- list()
   for (i in seq_along(filelist)){
@@ -20,7 +20,7 @@ files.bindr <- function(path = "", pattern = "", delim = "\t", na = "", output.f
   if (bind=="rows"){
     bound <- dplyr::bind_rows(import)
   }
-  if (bind=="columns"){
+  if (bind=="columns"|bind=="cols"){
     bound <- dplyr::bind_cols(import)
   }
 
