@@ -10,6 +10,7 @@
 #' @keywords remove
 #' @export remove.latent
 #' @examples
+#' # Example
 
 remove.latent <- function(x, factor.list, missing.allowed, id, removed.dir = NULL, removed.file = NULL){
   x.remove <- list()

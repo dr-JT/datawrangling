@@ -23,4 +23,7 @@ remove.latent(x, factor.list, missing.allowed, id, removed.dir = NULL,
 \description{
 This function will remove subjects based on amount of missing data per latent construct
 }
+\examples{
+# Example
+}
 \keyword{remove}

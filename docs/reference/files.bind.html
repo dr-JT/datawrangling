@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>A Data Transformation Function — files.bind • datawrangling</title>
+<title>A Tidy Data Function — files.bind • datawrangling</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -36,9 +36,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
 
 
-<meta property="og:title" content="A Data Transformation Function — files.bind" />
+<meta property="og:title" content="A Tidy Data Function — files.bind" />
 
-<meta property="og:description" content="This function merges files of the same data structure" />
+<meta property="og:description" content="This function binds multiple files together. `bind` can occur by &quot;rows&quot; or &quot;columns&quot;" />
 
 <meta property="og:image" content="https://dr-jt.github.io/datawrangling/logo.png" />
 <meta name="twitter:card" content="summary" />
@@ -111,14 +111,14 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>A Data Transformation Function</h1>
+    <h1>A Tidy Data Function</h1>
     <small class="dont-index">Source: <a href='https://github.com/dr-JT/datawrangling/blob/master/R/files.bind.R'><code>R/files.bind.R</code></a></small>
     <div class="hidden name"><code>files.bind.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>This function merges files of the same data structure</p>
+    <p>This function binds multiple files together. `bind` can occur by "rows" or "columns"</p>
     
     </div>
 
@@ -138,15 +138,15 @@
     </tr>
     <tr>
       <th>delim</th>
-      <td><p>Delimiter used in files to be merged</p></td>
+      <td><p>Delimiter used in files. Passed onto `readr::read_delim()`</p></td>
     </tr>
     <tr>
       <th>na</th>
-      <td><p>How are missing values defined in files to be merged</p></td>
+      <td><p>How are missing values defined in files to be merged. Passed to `readr::write_delim()`</p></td>
     </tr>
     <tr>
       <th>output.file</th>
-      <td><p>File name and path to be saved</p></td>
+      <td><p>File name and path to be saved to.</p></td>
     </tr>
     </table>
     

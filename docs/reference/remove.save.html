@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>A Data Transformation Function — remove.save • datawrangling</title>
+<title>A Data Cleaning Function — remove.save • datawrangling</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -36,10 +36,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
 
 
-<meta property="og:title" content="A Data Transformation Function — remove.save" />
+<meta property="og:title" content="A Data Cleaning Function — remove.save" />
 
-<meta property="og:description" content="This function centers a variable around the mean. A new column will be created with the
-centered values. There is also the option to center within context." />
+<meta property="og:description" content="This function takes as import two dataframes. The first dataframe is the original dataframe containing all IDs,
+The second dataframe contains only those IDs to be removed." />
 
 <meta property="og:image" content="https://dr-jt.github.io/datawrangling/logo.png" />
 <meta name="twitter:card" content="summary" />
@@ -112,19 +112,20 @@ centered values. There is also the option to center within context." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>A Data Transformation Function</h1>
+    <h1>A Data Cleaning Function</h1>
     <small class="dont-index">Source: <a href='https://github.com/dr-JT/datawrangling/blob/master/R/remove.save.R'><code>R/remove.save.R</code></a></small>
     <div class="hidden name"><code>remove.save.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>This function centers a variable around the mean. A new column will be created with the
-centered values. There is also the option to center within context.</p>
+    <p>This function takes as import two dataframes. The first dataframe is the original dataframe containing all IDs,
+The second dataframe contains only those IDs to be removed.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>remove.save</span>(<span class='no'>x</span>, <span class='no'>remove</span>, <span class='kw'>output.dir</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>output.file</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>remove.save</span>(<span class='no'>x</span>, <span class='no'>remove</span>, <span class='kw'>output.dir</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>output.file</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>id</span> <span class='kw'>=</span> <span class='st'>"Subject"</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -136,6 +137,10 @@ centered values. There is also the option to center within context.</p>
     <tr>
       <th>remove</th>
       <td><p>the dataframe that contains subjects to be removed</p></td>
+    </tr>
+    <tr>
+      <th>id</th>
+      <td><p>Column name containing Subject IDs.</p></td>
     </tr>
     <tr>
       <th>output</th>
