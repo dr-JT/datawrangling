@@ -14,11 +14,12 @@ center(x, variables = c(colnames(x)), context = "",
 
 \item{context}{Name of column to group by}
 
-\item{standardized}{Do you want to calculate zscores? Logical. (Default = FALSE)}
+\item{standardized}{Logical. Do you want to calculate zscores? (Default = FALSE)}
 }
 \description{
-This function centers a variable around the mean. A new column will be created with the
-centered values. There is also the option to center within context.
+This function centers a variable around the mean. To create z-scores, specify `standardized=TRUE`
+A new column will be created with the centered values.
+There is also the option to center within context.
 }
 \examples{
 center(x, subset = c(colnames(x)), context = "group", standardized = FALSE)

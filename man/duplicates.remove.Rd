@@ -2,7 +2,7 @@
 % Please edit documentation in R/duplicates.remove.R
 \name{duplicates.remove}
 \alias{duplicates.remove}
-\title{A Data Transformation Function}
+\title{A Tidy Data Function}
 \usage{
 duplicates.remove(x, timing.variables = "SessionStartDateTimeUtc",
   subj.variable = "Subject", taskname = "", output.folder = "")
@@ -19,7 +19,7 @@ duplicates.remove(x, timing.variables = "SessionStartDateTimeUtc",
 \item{output.folder}{Folder path to output the duplicate file to}
 }
 \description{
-This function removes duplicate subject files from E-Merge txt file
+This function removes duplicate subject files from an E-Merge txt file
 }
 \examples{
 duplicates.remove(x, subset = c(colnames(x)), context = "Subject")

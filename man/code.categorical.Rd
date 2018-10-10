@@ -11,7 +11,7 @@ code.categorical(x, variable = "", order = c())
 
 \item{variable}{column name}
 
-\item{order}{c() of column values}
+\item{order}{c() of column values in order}
 }
 \description{
 This function will code a column containing categorical "string" values into numerical values

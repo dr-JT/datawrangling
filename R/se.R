@@ -1,4 +1,4 @@
-#' A Task Scoring Function
+#' A Data Transformation Function
 #'
 #' Calculates the standard error of the mean
 #' @param x vector of values to calculate the se

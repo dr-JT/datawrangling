@@ -3,7 +3,7 @@
 #' This function will code a column containing categorical "string" values into numerical values
 #' @param x dataframe
 #' @param variable column name
-#' @param order c() of column values
+#' @param order c() of column values in order
 #' @keywords code
 #' @export
 #' @examples

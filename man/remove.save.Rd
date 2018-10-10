@@ -2,20 +2,23 @@
 % Please edit documentation in R/remove.save.R
 \name{remove.save}
 \alias{remove.save}
-\title{A Data Transformation Function}
+\title{A Data Cleaning Function}
 \usage{
-remove.save(x, remove, output.dir = NULL, output.file = NULL)
+remove.save(x, remove, output.dir = NULL, output.file = NULL,
+  id = "Subject")
 }
 \arguments{
 \item{x}{dataframe}
 
 \item{remove}{the dataframe that contains subjects to be removed}
 
+\item{id}{Column name containing Subject IDs.}
+
 \item{output}{folder directory path to save removed data}
 }
 \description{
-This function centers a variable around the mean. A new column will be created with the
-centered values. There is also the option to center within context.
+This function takes as import two dataframes. The first dataframe is the original dataframe containing all IDs,
+The second dataframe contains only those IDs to be removed.
 }
 \examples{
 remove.save(data, remove = data_remove, save = "data/remove", taskname = "Flanker")

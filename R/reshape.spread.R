@@ -1,7 +1,7 @@
-#' Data Transformation Function
+#' A Tidy Data Function
 #'
-#' This function is an extension of the spread() function in tidyverse.
-#' It can multiple values to apply spread() on.
+#' This function is an extension of the `tidyr::spread()` function
+#' It can `tidyr::spread()` on multiple keys and values.
 #' @param x dataframe
 #' @param variables The variable used for spreading
 #' @param variables_combine.name If using more than one variables column then specify name of a new combined column

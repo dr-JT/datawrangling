@@ -1,16 +1,15 @@
-#' A Data Transformation Function
+#' A Data Cleaning Function
 #'
 #' This function will remove subjects based on amount of missing data per latent construct
 #' @param x dataframe
-#' @param factor.list list of factors and tasks
-#' @param missing.allowed Amount of tasks allowed to be missing
+#' @param factor.list list of factors and tasks. ex. `list(WMC = c("OSpan", "RotSpan", SymSpan"), Gf = c("RAPM", "NumberSeries", "LetterSets"))`
+#' @param missing.allowed Proportion of tasks allowed to be missing
 #' @param id Subject ID variable
-#' @param removed.dir file directory to save removed subjects to
-#' @param removed.file file name to save removed subjects to
+#' @param removed.dir File directory to save removed subjects to
+#' @param removed.file File name to save removed subjects to
 #' @keywords remove
 #' @export remove.latent
 #' @examples
-#' remove.latent(x, variables = c(), cutoff = 3.5)
 
 remove.latent <- function(x, factor.list, missing.allowed, id, removed.dir = NULL, removed.file = NULL){
   x.remove <- list()

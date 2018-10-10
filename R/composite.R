@@ -6,7 +6,7 @@
 #' @param comp How the composite should be calculated, i.e. mean or sum. (Default = "mean").
 #' @param standardize Logical. Do you want to calculate the composite based on standardized (z-score) values? (Default = FALSE)
 #' @param name Name of the new composite variable
-#' @param missing.allowed Criteria for how many variables can having missing values to not add to composite variable
+#' @param missing.allowed Criteria for how many variables can having missing values and still calculate a composite
 #' @keywords composite
 #' @export
 #' @examples

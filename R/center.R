@@ -1,11 +1,12 @@
 #' A Data Transformation Function
 #'
-#' This function centers a variable around the mean. A new column will be created with the
-#' centered values. There is also the option to center within context.
+#' This function centers a variable around the mean. To create z-scores, specify `standardized=TRUE`
+#' A new column will be created with the centered values.
+#' There is also the option to center within context.
 #' @param x dataframe
 #' @param variables c() of columns to standardize
 #' @param context Name of column to group by
-#' @param standardized Do you want to calculate zscores? Logical. (Default = FALSE)
+#' @param standardized Logical. Do you want to calculate zscores? (Default = FALSE)
 #' @keywords center
 #' @export
 #' @examples

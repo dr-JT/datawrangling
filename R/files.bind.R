@@ -1,11 +1,11 @@
-#' A Data Transformation Function
+#' A Tidy Data Function
 #'
-#' This function merges files of the same data structure
+#' This function binds multiple files together. `bind` can occur by "rows" or "columns"
 #' @param path Folder location of files to be merged
 #' @param pattern Pattern to identify files to be merged
-#' @param delim Delimiter used in files to be merged
-#' @param na How are missing values defined in files to be merged
-#' @param output.file File name and path to be saved
+#' @param delim Delimiter used in files. Passed onto `readr::read_delim()`
+#' @param na How are missing values defined in files to be merged. Passed to `readr::write_delim()`
+#' @param output.file File name and path to be saved to.
 #' @export
 #' @examples
 #' files.bind(path = "./Data", pattern = ".txt")

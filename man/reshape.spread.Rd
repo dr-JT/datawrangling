@@ -2,7 +2,7 @@
 % Please edit documentation in R/reshape.spread.R
 \name{reshape.spread}
 \alias{reshape.spread}
-\title{Data Transformation Function}
+\title{A Tidy Data Function}
 \usage{
 reshape.spread(x, variables = "", variables_combine.sep = "_",
   values = c(), id = "", fill = NA)
@@ -23,8 +23,8 @@ reshape.spread(x, variables = "", variables_combine.sep = "_",
 \item{variables_combine.name}{If using more than one variables column then specify name of a new combined column}
 }
 \description{
-This function is an extension of the spread() function in tidyverse.
-It can multiple values to apply spread() on.
+This function is an extension of the `tidyr::spread()` function
+It can `tidyr::spread()` on multiple keys and values.
 }
 \examples{
 reshape.spread(x, variables = "variable", values = c("value1", "value2"), by = "Subject")

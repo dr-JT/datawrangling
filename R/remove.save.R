@@ -1,23 +1,27 @@
-#' A Data Transformation Function
+#' A Data Cleaning Function
 #'
-#' This function centers a variable around the mean. A new column will be created with the
-#' centered values. There is also the option to center within context.
+#' This function takes as import two dataframes. The first dataframe is the original dataframe containing all IDs,
+#' The second dataframe contains only those IDs to be removed.
 #' @param x dataframe
 #' @param remove the dataframe that contains subjects to be removed
 #' @param output folder directory path to save removed data
+#' @param id Column name containing Subject IDs.
 #' @keywords remove
 #' @export
 #' @examples
 #' remove.save(data, remove = data_remove, save = "data/remove", taskname = "Flanker")
 
-remove.save <- function(x, remove, output.dir = NULL, output.file = NULL) {
+remove.save <- function(x, remove, output.dir = NULL, output.file = NULL, id = "Subject") {
+  colnames(x)[which(colnames(x)==id)] <- "Subject"
   if (nrow(remove)>0){
     dir.create(output.dir, showWarnings = FALSE)
     readr::write_delim(remove, path = paste(output.dir, output.file, sep = "/"), delim = "\t", na = "")
+    colnames(remove)[which(colnames(remove)==id)] <- "Subject"
     subj.remove <- unique(remove$Subject)
     ## Remove them!
     x <- dplyr::filter(x, !(Subject %in% subj.remove))
   }
+  colnames(x)[which(colnames(x)=="Subject")] <- id
   return(x)
 }
 

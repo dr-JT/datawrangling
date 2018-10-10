@@ -2,7 +2,7 @@
 % Please edit documentation in R/remove.latent.R
 \name{remove.latent}
 \alias{remove.latent}
-\title{A Data Transformation Function}
+\title{A Data Cleaning Function}
 \usage{
 remove.latent(x, factor.list, missing.allowed, id, removed.dir = NULL,
   removed.file = NULL)
@@ -10,20 +10,17 @@ remove.latent(x, factor.list, missing.allowed, id, removed.dir = NULL,
 \arguments{
 \item{x}{dataframe}
 
-\item{factor.list}{list of factors and tasks}
+\item{factor.list}{list of factors and tasks. ex. `list(WMC = c("OSpan", "RotSpan", SymSpan"), Gf = c("RAPM", "NumberSeries", "LetterSets"))`}
 
-\item{missing.allowed}{Amount of tasks allowed to be missing}
+\item{missing.allowed}{Proportion of tasks allowed to be missing}
 
 \item{id}{Subject ID variable}
 
-\item{removed.dir}{file directory to save removed subjects to}
+\item{removed.dir}{File directory to save removed subjects to}
 
-\item{removed.file}{file name to save removed subjects to}
+\item{removed.file}{File name to save removed subjects to}
 }
 \description{
 This function will remove subjects based on amount of missing data per latent construct
-}
-\examples{
-remove.latent(x, variables = c(), cutoff = 3.5)
 }
 \keyword{remove}

@@ -1,6 +1,6 @@
-#' A Data Transformation Function
+#' A Tidy Data Function
 #'
-#' This function removes duplicate subject files from E-Merge txt file
+#' This function removes duplicate subject files from an E-Merge txt file
 #' @param x Imported E-Merge txt file
 #' @param timing.variables Variable name in file that corresponds to the session date and time
 #' @param subj.variable Name of varaible with Subject information

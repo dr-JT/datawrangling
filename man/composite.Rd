@@ -16,7 +16,7 @@ composite(x, variables, comp = "mean", standardized = FALSE,
 
 \item{name}{Name of the new composite variable}
 
-\item{missing.allowed}{Criteria for how many variables can having missing values to not add to composite variable}
+\item{missing.allowed}{Criteria for how many variables can having missing values and still calculate a composite}
 
 \item{standardize}{Logical. Do you want to calculate the composite based on standardized (z-score) values? (Default = FALSE)}
 }

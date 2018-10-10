@@ -19,7 +19,7 @@ trim(x, variables, cutoff = 3.5, context = "", replace = "NA",
 \item{replace}{What value should the trimmed values be replaced with. (default: replace = "NA")}
 }
 \description{
-This function will trim a variable(s) based on a zscore cutoff
+This function will trim variable(s) based on a zscore cutoff
 }
 \examples{
 trim(x, variables = c(), cutoff = 3.5)

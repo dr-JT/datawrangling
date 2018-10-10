@@ -2,7 +2,7 @@
 % Please edit documentation in R/files.bind.R
 \name{files.bind}
 \alias{files.bind}
-\title{A Data Transformation Function}
+\title{A Tidy Data Function}
 \usage{
 files.bind(path = "", pattern = "", delim = "\\t", na = "",
   output.file = "", bind = "rows")
@@ -12,14 +12,14 @@ files.bind(path = "", pattern = "", delim = "\\t", na = "",
 
 \item{pattern}{Pattern to identify files to be merged}
 
-\item{delim}{Delimiter used in files to be merged}
+\item{delim}{Delimiter used in files. Passed onto `readr::read_delim()`}
 
-\item{na}{How are missing values defined in files to be merged}
+\item{na}{How are missing values defined in files to be merged. Passed to `readr::write_delim()`}
 
-\item{output.file}{File name and path to be saved}
+\item{output.file}{File name and path to be saved to.}
 }
 \description{
-This function merges files of the same data structure
+This function binds multiple files together. `bind` can occur by "rows" or "columns"
 }
 \examples{
 files.bind(path = "./Data", pattern = ".txt")

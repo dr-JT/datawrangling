@@ -2,7 +2,7 @@
 % Please edit documentation in R/reshape.gather.R
 \name{reshape.gather}
 \alias{reshape.gather}
-\title{Data Transformation Function}
+\title{A Tidy Data Function}
 \usage{
 reshape.gather(x, variable.names, values, id = NULL,
   separate.pattern = NULL)
@@ -10,7 +10,7 @@ reshape.gather(x, variable.names, values, id = NULL,
 \arguments{
 \item{x}{dataframe}
 
-\item{variable.names}{The variable used for spreading}
+\item{variable.names}{The variable used for gathering}
 
 \item{values}{If using more than one variables column then specify name of a new combined column}
 
@@ -19,8 +19,8 @@ reshape.gather(x, variable.names, values, id = NULL,
 \item{separate.pattern}{stuff}
 }
 \description{
-This function is an extension of the spread() function in tidyverse.
-It can multiple values to apply spread() on.
+This function is an extension of the `tidyr::gather()` function.
+It can `tidyr::gather()` on multiple keys and values
 }
 \examples{
 reshape.gather(x, variables = "variable", values = c("value1", "value2"), by = "Subject")

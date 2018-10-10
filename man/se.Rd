@@ -2,7 +2,7 @@
 % Please edit documentation in R/se.R
 \name{se}
 \alias{se}
-\title{A Task Scoring Function}
+\title{A Data Transformation Function}
 \usage{
 se(x, na.rm = FALSE)
 }

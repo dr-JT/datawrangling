@@ -1,6 +1,6 @@
 #' A Data Transformation Function
 #'
-#' This function will trim a variable(s) based on a zscore cutoff
+#' This function will trim variable(s) based on a zscore cutoff
 #' @param x dataframe
 #' @param variables variables c() to be trimmed
 #' @param cutoff zscore cutoff to use for trimming (default: 3.5)

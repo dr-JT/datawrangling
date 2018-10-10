@@ -1,9 +1,9 @@
-#' Data Transformation Function
+#' A Tidy Data Function
 #'
-#' This function is an extension of the spread() function in tidyverse.
-#' It can multiple values to apply spread() on.
+#' This function is an extension of the `tidyr::gather()` function.
+#' It can `tidyr::gather()` on multiple keys and values
 #' @param x dataframe
-#' @param variable.names The variable used for spreading
+#' @param variable.names The variable used for gathering
 #' @param values If using more than one variables column then specify name of a new combined column
 #' @param id What column is not being reorganized and needs to be preserved. Usually "Subject"
 #' @param separate.pattern stuff
