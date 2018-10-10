@@ -1,4 +1,4 @@
-# datawrangling
+# datawrangling <img src = "man/figures/logo_small.png" align = "right" />
 
 This package contains a variety of commonly used functions that simplify the process of getting your data ready for statistical analysis.
 
