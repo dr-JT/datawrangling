@@ -1,4 +1,4 @@
-#' A Tidy Data Function
+#' Reshape dataframe from long to wide
 #'
 #' This function is an extension of the `tidyr::spread()` function
 #' It can `tidyr::spread()` on multiple keys and values.

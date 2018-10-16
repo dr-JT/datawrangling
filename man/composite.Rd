@@ -2,7 +2,7 @@
 % Please edit documentation in R/composite.R
 \name{composite}
 \alias{composite}
-\title{A Data Transformation Function}
+\title{Create a compositve variable}
 \usage{
 composite(x, variables, comp = "mean", standardized = FALSE,
   name = NULL, missing.allowed = NULL)

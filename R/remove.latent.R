@@ -1,4 +1,4 @@
-#' A Data Cleaning Function
+#' Remove subjects with too much missing data on a given latent construct
 #'
 #' This function will remove subjects based on amount of missing data per latent construct
 #' @param x dataframe

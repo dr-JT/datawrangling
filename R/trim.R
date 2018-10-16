@@ -1,4 +1,4 @@
-#' A Data Transformation Function
+#' Trim scores
 #'
 #' This function will trim variable(s) based on a zscore cutoff
 #' @param x dataframe

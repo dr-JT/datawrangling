@@ -1,4 +1,4 @@
-#' A Data Transformation Function
+#' Create a column of centered variables
 #'
 #' This function centers a variable around the mean. To create z-scores, specify `standardized=TRUE`
 #' A new column will be created with the centered values.

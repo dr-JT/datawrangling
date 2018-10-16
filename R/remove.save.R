@@ -1,4 +1,4 @@
-#' A Data Cleaning Function
+#' Remove outliers/bad subjects
 #'
 #' This function takes as import two dataframes. The first dataframe is the original dataframe containing all IDs,
 #' The second dataframe contains only those IDs to be removed.

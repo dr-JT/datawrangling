@@ -2,7 +2,7 @@
 % Please edit documentation in R/reshape.gather.R
 \name{reshape.gather}
 \alias{reshape.gather}
-\title{A Tidy Data Function}
+\title{Reshape dataframe from wide to long}
 \usage{
 reshape.gather(x, variable.names, values, id = NULL,
   separate.pattern = NULL)

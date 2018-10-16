@@ -1,4 +1,4 @@
-#' A Data Transformation Function
+#' Calculate the standard error
 #'
 #' Calculates the standard error of the mean
 #' @param x vector of values to calculate the se

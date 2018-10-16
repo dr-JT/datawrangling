@@ -2,7 +2,7 @@
 % Please edit documentation in R/code.categorical.R
 \name{code.categorical}
 \alias{code.categorical}
-\title{A Data Transformation Function}
+\title{Recode a character variable into numerical values}
 \usage{
 code.categorical(x, variable = "", order = c())
 }

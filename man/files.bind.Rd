@@ -2,7 +2,7 @@
 % Please edit documentation in R/files.bind.R
 \name{files.bind}
 \alias{files.bind}
-\title{A Tidy Data Function}
+\title{Bind multiple files into one file}
 \usage{
 files.bind(path = "", pattern = "", delim = "\\t", na = "",
   output.file = "", bind = "rows")

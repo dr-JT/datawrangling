@@ -2,7 +2,7 @@
 % Please edit documentation in R/remove.latent.R
 \name{remove.latent}
 \alias{remove.latent}
-\title{A Data Cleaning Function}
+\title{Remove subjects with too much missing data on a given latent construct}
 \usage{
 remove.latent(x, factor.list, missing.allowed, id, removed.dir = NULL,
   removed.file = NULL)

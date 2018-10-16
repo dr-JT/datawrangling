@@ -2,7 +2,7 @@
 % Please edit documentation in R/files.merge.R
 \name{files.merge}
 \alias{files.merge}
-\title{A Tidy Data Function}
+\title{Merge multiple files into one merged file}
 \usage{
 files.merge(path = "", pattern = "", delim = "\\t", na = "",
   output.file = "", id = NULL)

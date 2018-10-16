@@ -1,4 +1,4 @@
-#' A Tidy Data Function
+#' Reshape dataframe from wide to long
 #'
 #' This function is an extension of the `tidyr::gather()` function.
 #' It can `tidyr::gather()` on multiple keys and values

@@ -1,4 +1,4 @@
-#' A Tidy Data Function
+#' Merge multiple files into one merged file
 #'
 #' This function merges multiple files together.
 #' @param path Folder location of files to be merged

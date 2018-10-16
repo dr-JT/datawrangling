@@ -2,7 +2,7 @@
 % Please edit documentation in R/center.R
 \name{center}
 \alias{center}
-\title{A Data Transformation Function}
+\title{Create a column of centered variables}
 \usage{
 center(x, variables = c(colnames(x)), context = "",
   standardized = FALSE)

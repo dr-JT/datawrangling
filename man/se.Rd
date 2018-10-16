@@ -2,7 +2,7 @@
 % Please edit documentation in R/se.R
 \name{se}
 \alias{se}
-\title{A Data Transformation Function}
+\title{Calculate the standard error}
 \usage{
 se(x, na.rm = FALSE)
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/remove.save.R
 \name{remove.save}
 \alias{remove.save}
-\title{A Data Cleaning Function}
+\title{Remove outliers/bad subjects}
 \usage{
 remove.save(x, remove, output.dir = NULL, output.file = NULL,
   id = "Subject")

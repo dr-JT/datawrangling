@@ -1,4 +1,4 @@
-#' A Tidy Data Function
+#' Remove duplicate subjects from an edat file
 #'
 #' This function removes duplicate subject files from an E-Merge txt file
 #' @param x Imported E-Merge txt file

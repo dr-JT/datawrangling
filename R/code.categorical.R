@@ -1,4 +1,4 @@
-#' A Data Transformation Function
+#' Recode a character variable into numerical values
 #'
 #' This function will code a column containing categorical "string" values into numerical values
 #' @param x dataframe

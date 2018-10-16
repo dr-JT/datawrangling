@@ -2,7 +2,7 @@
 % Please edit documentation in R/trim.R
 \name{trim}
 \alias{trim}
-\title{A Data Transformation Function}
+\title{Trim scores}
 \usage{
 trim(x, variables, cutoff = 3.5, context = "", replace = "NA",
   id = "")

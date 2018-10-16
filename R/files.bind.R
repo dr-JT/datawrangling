@@ -1,4 +1,4 @@
-#' A Tidy Data Function
+#' Bind multiple files into one file
 #'
 #' This function binds multiple files together. `bind` can occur by "rows" or "columns"
 #' @param path Folder location of files to be merged

@@ -2,7 +2,7 @@
 % Please edit documentation in R/reshape.spread.R
 \name{reshape.spread}
 \alias{reshape.spread}
-\title{A Tidy Data Function}
+\title{Reshape dataframe from long to wide}
 \usage{
 reshape.spread(x, variables = "", variables_combine.sep = "_",
   values = c(), id = "", fill = NA)

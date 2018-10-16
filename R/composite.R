@@ -1,4 +1,4 @@
-#' A Data Transformation Function
+#' Create a compositve variable
 #'
 #' This function will create a composite variable
 #' @param x dataframe

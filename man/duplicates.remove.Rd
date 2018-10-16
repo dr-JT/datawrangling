@@ -2,7 +2,7 @@
 % Please edit documentation in R/duplicates.remove.R
 \name{duplicates.remove}
 \alias{duplicates.remove}
-\title{A Tidy Data Function}
+\title{Remove duplicate subjects from an edat file}
 \usage{
 duplicates.remove(x, timing.variables = "SessionStartDateTimeUtc",
   subj.variable = "Subject", taskname = "", output.folder = "")
