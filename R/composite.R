@@ -3,16 +3,16 @@
 #' This function will create a composite variable
 #' @param x dataframe
 #' @param variables c() of columns to average together to create the composite
-#' @param comp How the composite should be calculated, i.e. mean or sum. (Default = "mean").
+#' @param type What type of composite should be calculated?, i.e. mean or sum. (Default = "mean").
 #' @param standardize Logical. Do you want to calculate the composite based on standardized (z-score) values? (Default = FALSE)
 #' @param name Name of the new composite variable
 #' @param missing.allowed Criteria for how many variables can having missing values and still calculate a composite
 #' @keywords composite
 #' @export
 #' @examples
-#' composite(x, variable = c(), comp = "mean", name = "name")
+#' composite(x, variable = c(), type = "mean", name = "name")
 
-composite <- function (x, variables, comp = "mean", standardized = FALSE, name = NULL, missing.allowed = NULL){
+composite <- function (x, variables, type = "mean", standardized = FALSE, name = NULL, missing.allowed = NULL){
   # Compute z-scores if standardized==TRUE
   if (standardized==TRUE){
     for (variable in colnames(x[variables])){
@@ -27,9 +27,9 @@ composite <- function (x, variables, comp = "mean", standardized = FALSE, name =
   }
 
   # Compute composite based on comp parameter (mean or sum)
-  if (comp=="mean"){
+  if (type=="mean"){
     x <- transform(x, composite = rowMeans(x[variables], na.rm = TRUE))
-  } else if (comp=="sum"){
+  } else if (type=="sum"){
     x <- transform(x, composite = rowSums(x[variables], na.rm = TRUE))
   }
 

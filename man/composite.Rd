@@ -4,7 +4,7 @@
 \alias{composite}
 \title{Create a compositve variable}
 \usage{
-composite(x, variables, comp = "mean", standardized = FALSE,
+composite(x, variables, type = "mean", standardized = FALSE,
   name = NULL, missing.allowed = NULL)
 }
 \arguments{
@@ -12,7 +12,7 @@ composite(x, variables, comp = "mean", standardized = FALSE,
 
 \item{variables}{c() of columns to average together to create the composite}
 
-\item{comp}{How the composite should be calculated, i.e. mean or sum. (Default = "mean").}
+\item{type}{What type of composite should be calculated?, i.e. mean or sum. (Default = "mean").}
 
 \item{name}{Name of the new composite variable}
 
@@ -24,6 +24,6 @@ composite(x, variables, comp = "mean", standardized = FALSE,
 This function will create a composite variable
 }
 \examples{
-composite(x, variable = c(), comp = "mean", name = "name")
+composite(x, variable = c(), type = "mean", name = "name")
 }
 \keyword{composite}
