@@ -4,14 +4,13 @@
 #' @param x dataframe
 #' @param variables variables c() to be trimmed
 #' @param cutoff zscore cutoff to use for trimming (default: 3.5)
-#' @param context Name of column to group by
 #' @param replace What value should the trimmed values be replaced with. (default: replace = "NA")
 #' @keywords trim
 #' @export
 #' @examples
 #' trim(x, variables = c(), cutoff = 3.5)
 
-trim <- function(x, variables, cutoff = 3.5, context = "", replace = "NA", id = ""){
+trim <- function(x, variables, cutoff = 3.5, replace = "NA", id = ""){
   col.order <- colnames(x)
   if (variables=="all"){
     variables <- colnames(x)[which(colnames(x)!=id)]
@@ -19,7 +18,7 @@ trim <- function(x, variables, cutoff = 3.5, context = "", replace = "NA", id = 
     variables <- variables[which(!(variables!=id))]
   }
 
-  x <- center(x, variables = variables, standardized = TRUE, context = context)
+  x <- center(x, variables = variables, standardized = TRUE)
 
   if (replace=="NA") {
     for (i in variables){
@@ -35,18 +34,6 @@ trim <- function(x, variables, cutoff = 3.5, context = "", replace = "NA", id = 
   if (replace=="cutoff") {
     for (i in variables){
       zscored <- paste(i, "_z", sep = "")
-      if (context!=""){
-        if (length(context)==1){
-          x <- dplyr::group_by(x, get(context))
-          zscored <- paste(i, "_zwc", sep = "")
-        } else if (length(context)==2){
-          x <- dplyr::group_by(x, get(context[1]), get(context[2]))
-          zscored <- paste(i, "_zwc", sep = "")
-        } else if (length(context)==3){
-          x <- dplyr::group_by(x, get(context[1]), get(context[2]), get(context[3]))
-          zscored <- paste(i, "_zwc", sep = "")
-        }
-      }
       x <- dplyr::mutate(x,
                          placeholder = get(zscored),
                          placeholder.mean = mean(get(i), na.rm = TRUE),
@@ -61,18 +48,6 @@ trim <- function(x, variables, cutoff = 3.5, context = "", replace = "NA", id = 
   if (replace=="mean"){
     for (i in variables){
       zscored <- paste(i, "_z", sep = "")
-      if (context!=""){
-        if (length(context)==1){
-          x <- dplyr::group_by(x, get(context))
-          zscored <- paste(i, "_zwc", sep = "")
-        } else if (length(context)==2){
-          x <- dplyr::group_by(x, get(context[1]), get(context[2]))
-          zscored <- paste(i, "_zwc", sep = "")
-        } else if (length(context)==3){
-          x <- dplyr::group_by(x, get(context[1]), get(context[2]), get(context[3]))
-          zscored <- paste(i, "_zwc", sep = "")
-        }
-      }
       x <- dplyr::mutate(x,
                          placeholder = get(zscored),
                          placeholder.mean = mean(get(i), na.rm = TRUE),
@@ -86,18 +61,6 @@ trim <- function(x, variables, cutoff = 3.5, context = "", replace = "NA", id = 
   if (replace=="median"){
     for (i in variables){
       zscored <- paste(i, "_z", sep = "")
-      if (context!=""){
-        if (length(context)==1){
-          x <- dplyr::group_by(x, get(context))
-          zscored <- paste(i, "_zwc", sep = "")
-        } else if (length(context)==2){
-          x <- dplyr::group_by(x, get(context[1]), get(context[2]))
-          zscored <- paste(i, "_zwc", sep = "")
-        } else if (length(context)==3){
-          x <- dplyr::group_by(x, get(context[1]), get(context[2]), get(context[3]))
-          zscored <- paste(i, "_zwc", sep = "")
-        }
-      }
       x <- dplyr::mutate(x,
                          placeholder = get(zscored),
                          placeholder.median = median(get(i), na.rm = TRUE),
@@ -107,7 +70,6 @@ trim <- function(x, variables, cutoff = 3.5, context = "", replace = "NA", id = 
       colnames(x)[which(colnames(x)=="placeholder")] <- i
     }
   }
-
   x <- x[col.order]
   return(x)
 }
