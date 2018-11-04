@@ -14,8 +14,6 @@ trim <- function(x, variables, cutoff = 3.5, replace = "NA", id = ""){
   col.order <- colnames(x)
   if (variables=="all"){
     variables <- colnames(x)[which(colnames(x)!=id)]
-  } else {
-    variables <- variables[which(!(variables!=id))]
   }
 
   x <- center(x, variables = variables, standardized = TRUE)
