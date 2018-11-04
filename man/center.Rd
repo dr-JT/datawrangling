@@ -4,15 +4,12 @@
 \alias{center}
 \title{Create a column of centered variables}
 \usage{
-center(x, variables = c(colnames(x)), context = "",
-  standardized = FALSE)
+center(x, variables = c(colnames(x)), standardized = FALSE)
 }
 \arguments{
 \item{x}{dataframe}
 
 \item{variables}{c() of columns to standardize}
-
-\item{context}{Name of column to group by}
 
 \item{standardized}{Logical. Do you want to calculate zscores? (Default = FALSE)}
 }
@@ -22,6 +19,6 @@ A new column will be created with the centered values.
 There is also the option to center within context.
 }
 \examples{
-center(x, subset = c(colnames(x)), context = "group", standardized = FALSE)
+center(x, subset = c(colnames(x)), standardized = FALSE)
 }
 \keyword{center}
