@@ -4,7 +4,7 @@
 #' @param x dataframe
 #' @param variables c() of columns to average together to create the composite
 #' @param type What type of composite should be calculated?, i.e. mean or sum. (Default = "mean").
-#' @param standardize Logical. Do you want to calculate the composite based on standardized (z-score) values? (Default = FALSE)
+#' @param standardize Logical. Do you want to calculate the composite based on standardize (z-score) values? (Default = FALSE)
 #' @param name Name of the new composite variable
 #' @param missing.allowed Criteria for how many variables can having missing values and still calculate a composite
 #' @keywords composite
@@ -12,9 +12,9 @@
 #' @examples
 #' composite(x, variable = c(), type = "mean", name = "name")
 
-composite <- function (x, variables, type = "mean", standardized = FALSE, name = NULL, missing.allowed = NULL){
-  # Compute z-scores if standardized==TRUE
-  if (standardized==TRUE){
+composite <- function (x, variables, type = "mean", standardize = FALSE, name = NULL, missing.allowed = NULL){
+  # Compute z-scores if standardize==TRUE
+  if (standardize==TRUE){
     for (variable in colnames(x[variables])){
       # Calculate zscores using the scale() function
       x <- dplyr::mutate(x, z.scored = scale(get(variable), center = TRUE, scale = TRUE))
