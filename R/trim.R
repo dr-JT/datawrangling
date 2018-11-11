@@ -16,7 +16,7 @@ trim <- function(x, variables, cutoff = 3.5, replace = "NA", id = ""){
     variables <- colnames(x)[which(colnames(x)!=id)]
   }
 
-  x <- center(x, variables = variables, standardized = TRUE)
+  x <- center(x, variables = variables, standardize = TRUE)
 
   if (replace=="NA") {
     for (i in variables){
