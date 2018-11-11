@@ -4,7 +4,7 @@
 \alias{composite}
 \title{Create a compositve variable}
 \usage{
-composite(x, variables, type = "mean", standardized = FALSE,
+composite(x, variables, type = "mean", standardize = FALSE,
   name = NULL, missing.allowed = NULL)
 }
 \arguments{
@@ -14,11 +14,11 @@ composite(x, variables, type = "mean", standardized = FALSE,
 
 \item{type}{What type of composite should be calculated?, i.e. mean or sum. (Default = "mean").}
 
+\item{standardize}{Logical. Do you want to calculate the composite based on standardize (z-score) values? (Default = FALSE)}
+
 \item{name}{Name of the new composite variable}
 
 \item{missing.allowed}{Criteria for how many variables can having missing values and still calculate a composite}
-
-\item{standardize}{Logical. Do you want to calculate the composite based on standardized (z-score) values? (Default = FALSE)}
 }
 \description{
 This function will create a composite variable

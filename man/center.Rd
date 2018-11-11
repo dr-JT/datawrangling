@@ -4,21 +4,21 @@
 \alias{center}
 \title{Create a column of centered variables}
 \usage{
-center(x, variables = c(colnames(x)), standardized = FALSE)
+center(x, variables = c(colnames(x)), standardize = FALSE)
 }
 \arguments{
 \item{x}{dataframe}
 
 \item{variables}{c() of columns to standardize}
 
-\item{standardized}{Logical. Do you want to calculate zscores? (Default = FALSE)}
+\item{standardize}{Logical. Do you want to calculate zscores? (Default = FALSE)}
 }
 \description{
-This function centers a variable around the mean. To create z-scores, specify `standardized=TRUE`
+This function centers a variable around the mean. To create z-scores, specify `standardize=TRUE`
 A new column will be created with the centered values.
 There is also the option to center within context.
 }
 \examples{
-center(x, subset = c(colnames(x)), standardized = FALSE)
+center(x, subset = c(colnames(x)), standardize = FALSE)
 }
 \keyword{center}

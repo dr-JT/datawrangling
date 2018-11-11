@@ -4,8 +4,8 @@
 \alias{remove.latent}
 \title{Remove subjects with too much missing data on a given latent construct}
 \usage{
-remove.latent(x, factor.list, missing.allowed, id, removed.dir = NULL,
-  removed.file = NULL)
+remove.latent(x, factor.list, missing.allowed, id, output.dir = NULL,
+  output.file = NULL)
 }
 \arguments{
 \item{x}{dataframe}
@@ -16,9 +16,9 @@ remove.latent(x, factor.list, missing.allowed, id, removed.dir = NULL,
 
 \item{id}{Subject ID variable}
 
-\item{removed.dir}{File directory to save removed subjects to}
+\item{output.dir}{File directory to save removed subjects to}
 
-\item{removed.file}{File name to save removed subjects to}
+\item{output.file}{File name to save removed subjects to}
 }
 \description{
 This function will remove subjects based on amount of missing data per latent construct
