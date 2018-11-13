@@ -7,22 +7,12 @@
 #' @param id Subject ID variable
 #' @param output.dir File directory to save removed subjects to
 #' @param output.file File name to save removed subjects to
-#'
-#' @templateVar fun remove.latent
-#' @template template-depr_fun
-NULL
-
-#' @templateVar old remove.latent
-#' @templateVar new remove_latent
-#' @template template-depr_pkg
-#'
 #' @keywords remove
 #' @export remove.latent
 #' @examples
 #' # Example
 
-remove.latent <- function(x, factor.list, missing.allowed, id, output.dir = NULL, output.file = NULL){
-  .Deprecated("remove_latent")
+remove_latent <- function(x, factor.list, missing.allowed, id, output.dir = NULL, output.file = NULL){
   x.remove <- list()
   for (f in seq_along(factor.list)){
     x.remove[[f]] <- dplyr::mutate(x, missing = 0)
