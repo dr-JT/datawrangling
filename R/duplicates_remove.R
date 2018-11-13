@@ -6,21 +6,11 @@
 #' @param subj.variable Name of varaible with Subject information
 #' @param taskname name of task for saving output file
 #' @param output.folder Folder path to output the duplicate file to
-#'
-#' @templateVar fun duplicates.remove
-#' @template template-depr_fun
-NULL
-
-#' @templateVar old duplicates.remove
-#' @templateVar new duplicates_remove
-#' @template template-depr_pkg
-#'
 #' @export
 #' @examples
-#' duplicates.remove(x, subset = c(colnames(x)), context = "Subject")
+#' duplicates_remove(x, subset = c(colnames(x)), context = "Subject")
 
-duplicates.remove <- function(x, timing.variables = "SessionStartDateTimeUtc", subj.variable = "Subject", taskname = "", output.folder = ""){
-  .Deprecated("duplicates_remove")
+duplicates_remove <- function(x, timing.variables = "SessionStartDateTimeUtc", subj.variable = "Subject", taskname = "", output.folder = ""){
   x_duplicated <- x[,c(subj.variable, timing.variables)]
   x_duplicated <- x_duplicated[!duplicated(x_duplicated),]
 
