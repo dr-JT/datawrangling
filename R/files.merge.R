@@ -7,11 +7,21 @@
 #' @param na How are missing values defined in files to be merged. Passed to `readr::write_delim()`
 #' @param output.file File name and path to be saved to
 #' @param id Subject ID variable name. Passed onto `plyr::join_all(by = id)`
+#'
+#' @templateVar fun files.merge
+#' @template template-depr_fun
+NULL
+
+#' @templateVar old files.merge
+#' @templateVar new files_join
+#' @template template-depr_pkg
+#'
 #' @export
 #' @examples
 #' files.merge(path = "./Data", pattern = ".txt")
 
 files.merge <- function(path = "", pattern = "", delim = "\t", na = "", output.file = "", id = NULL){
+  .Deprecated("files_join")
   filelist <- list.files(path = path, pattern = pattern, full.names = TRUE)
   import <- list()
   for (i in seq_along(filelist)){
