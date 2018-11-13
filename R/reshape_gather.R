@@ -8,7 +8,7 @@
 #' @param id What column is not being reorganized and needs to be preserved. Usually "Subject"
 #' @param separate.pattern stuff
 #' @keywords reshape
-#' @export reshape.gather
+#' @export reshape_gather
 #' @examples
 #' reshape_gather(x, variables = "variable", values = c("value1", "value2"), by = "Subject")
 

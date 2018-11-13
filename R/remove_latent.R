@@ -8,7 +8,7 @@
 #' @param output.dir File directory to save removed subjects to
 #' @param output.file File name to save removed subjects to
 #' @keywords remove
-#' @export remove.latent
+#' @export remove_latent
 #' @examples
 #' # Example
 
