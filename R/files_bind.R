@@ -6,21 +6,11 @@
 #' @param delim Delimiter used in files. Passed onto `readr::read_delim()`
 #' @param na How are missing values defined in files to be merged. Passed to `readr::write_delim()`
 #' @param output.file File name and path to be saved to.
-#'
-#' @templateVar fun files.bind
-#' @template template-depr_fun
-NULL
-
-#' @templateVar old files.bind
-#' @templateVar new files_bind
-#' @template template-depr_pkg
-#'
 #' @export
 #' @examples
-#' files.bind(path = "./Data", pattern = ".txt")
+#' files_bind(path = "./Data", pattern = ".txt")
 
-files.bind <- function(path = "", pattern = "", delim = "\t", na = "", output.file = "", bind = "rows"){
-  .Deprecated("files_bind")
+files_bind <- function(path = "", pattern = "", delim = "\t", na = "", output.file = "", bind = "rows"){
   filelist <- list.files(path = path, pattern = pattern, full.names = TRUE)
   import <- list()
   for (i in seq_along(filelist)){
