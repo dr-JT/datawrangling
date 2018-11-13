@@ -9,22 +9,12 @@
 #' @param values A vector of columns that contain the values
 #' @param id What column is not being reorganized and needs to be preserved. Usually "Subject"
 #' @param fill Passed to spread() fill parameter
-#'
-#' @templateVar fun reshape.spread
-#' @template template-depr_fun
-NULL
-
-#' @templateVar old reshape.spread
-#' @templateVar new reshape_spread
-#' @template template-depr_pkg
-#'
 #' @keywords reshape
-#' @export reshape.spread
+#' @export reshape_spread
 #' @examples
-#' reshape.spread(x, variables = "variable", values = c("value1", "value2"), by = "Subject")
+#' reshape_spread(x, variables = "variable", values = c("value1", "value2"), by = "Subject")
 
-reshape.spread <- function(x, variables = "", variables_combine.sep = "_", values = c(), id = "", fill = NA){
-  .Deprecated("reshape_spread")
+reshape_spread <- function(x, variables = "", variables_combine.sep = "_", values = c(), id = "", fill = NA){
   if (length(variables)>1){
     x <- tidyr::unite(x, placeholder, variables, sep = variables_combine.sep)
     variables <- "placeholder"

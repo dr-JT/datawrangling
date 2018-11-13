@@ -2,7 +2,7 @@
 % Please edit documentation in R/code.categorical.R,
 %   R/datawrangling-deprecated.r, R/duplicates.remove.R, R/files.bind.R,
 %   R/files.join.R, R/files.merge.R, R/remove.latent.R, R/remove.save.R,
-%   R/reshape.gather.R
+%   R/reshape.gather.R, R/reshape.spread.R
 \name{datawrangling-deprecated}
 \alias{datawrangling-deprecated}
 \alias{code.categorical}
@@ -13,6 +13,7 @@
 \alias{remove.latent}
 \alias{remove.save}
 \alias{reshape.gather}
+\alias{reshape.spread}
 \title{Deprecated functions in package \pkg{datawrangling}.}
 \usage{
 code.categorical(x, variable = "", order = c())
@@ -37,6 +38,9 @@ remove.save(x, remove, output.dir = NULL, output.file = NULL,
 
 reshape.gather(x, variable.names, values, id = NULL,
   separate.pattern = NULL)
+
+reshape.spread(x, variables = "", variables_combine.sep = "_",
+  values = c(), id = "", fill = NA)
 }
 \description{
 The functions listed below are deprecated and will be defunct in
@@ -84,6 +88,11 @@ For \code{remove.save}, use \code{\link{remove_save}}.
 For \code{reshape.gather}, use \code{\link{reshape_gather}}.
 }
 
+\section{\code{reshape.spread}}{
+
+For \code{reshape.spread}, use \code{\link{reshape_spread}}.
+}
+
 \examples{
 code.categorical(x, variable = "columnName", order = c("string1", "string2", "string3"))
 duplicates.remove(x, subset = c(colnames(x)), context = "Subject")
@@ -93,6 +102,7 @@ files.merge(path = "./Data", pattern = ".txt")
 # Example
 remove.save(data, remove = data_remove, save = "data/remove", taskname = "Flanker")
 reshape.gather(x, variables = "variable", values = c("value1", "value2"), by = "Subject")
+reshape.spread(x, variables = "variable", values = c("value1", "value2"), by = "Subject")
 }
 \keyword{code}
 \keyword{internal}
