@@ -4,22 +4,12 @@
 #' @param x dataframe
 #' @param variable column name
 #' @param order c() of column values in order
-#'
-#' @templateVar fun code.categorical
-#' @template template-depr_fun
-NULL
-
-#' @templateVar old code.categorical
-#' @templateVar new code_categorical
-#' @template template-depr_pkg
-#'
 #' @keywords code
 #' @export
 #' @examples
-#' code.categorical(x, variable = "columnName", order = c("string1", "string2", "string3"))
+#' code_categorical(x, variable = "columnName", order = c("string1", "string2", "string3"))
 
-code.categorical <- function(x, variable = "", order = c()){
-  .Deprecated("code_categorical")
+code_categorical <- function(x, variable = "", order = c()){
   for (value in 1:length(order)){
     x[which(x[variable]==order[value]),variable] <- value
   }
