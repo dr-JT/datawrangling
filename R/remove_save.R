@@ -6,22 +6,12 @@
 #' @param remove the dataframe that contains subjects to be removed
 #' @param output folder directory path to save removed data
 #' @param id Column name containing Subject IDs.
-#'
-#' @templateVar fun remove.save
-#' @template template-depr_fun
-NULL
-
-#' @templateVar old remove.save
-#' @templateVar new remove_save
-#' @template template-depr_pkg
-#'
 #' @keywords remove
 #' @export
 #' @examples
-#' remove.save(data, remove = data_remove, save = "data/remove", taskname = "Flanker")
+#' remove_save(data, remove = data_remove, save = "data/remove", taskname = "Flanker")
 
-remove.save <- function(x, remove, output.dir = NULL, output.file = NULL, id = "Subject") {
-  .Deprecated("remove_save")
+remove_save <- function(x, remove, output.dir = NULL, output.file = NULL, id = "Subject") {
   colnames(x)[which(colnames(x)==id)] <- "Subject"
   if (nrow(remove)>0){
     dir.create(output.dir, showWarnings = FALSE)
