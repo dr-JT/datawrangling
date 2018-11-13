@@ -7,22 +7,12 @@
 #' @param values If using more than one variables column then specify name of a new combined column
 #' @param id What column is not being reorganized and needs to be preserved. Usually "Subject"
 #' @param separate.pattern stuff
-#'
-#' @templateVar fun reshape.gather
-#' @template template-depr_fun
-NULL
-
-#' @templateVar old reshape.gather
-#' @templateVar new reshape_gather
-#' @template template-depr_pkg
-#'
 #' @keywords reshape
 #' @export reshape.gather
 #' @examples
-#' reshape.gather(x, variables = "variable", values = c("value1", "value2"), by = "Subject")
+#' reshape_gather(x, variables = "variable", values = c("value1", "value2"), by = "Subject")
 
-reshape.gather <- function(x, variable.names, values, id = NULL, separate.pattern = NULL){
-  .Deprecated("reshape_gather")
+reshape_gather <- function(x, variable.names, values, id = NULL, separate.pattern = NULL){
   if (length(variable.names)>1){
     separate.into <- variable.names
     variable.names <- "variable.hold"
