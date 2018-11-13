@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Trim scores — trim • datawrangling</title>
+<title>Remove duplicate subjects from an edat file — duplicates_remove • datawrangling</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -36,9 +36,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
 
 
-<meta property="og:title" content="Trim scores — trim" />
+<meta property="og:title" content="Remove duplicate subjects from an edat file — duplicates_remove" />
 
-<meta property="og:description" content="This function will trim variable(s) based on a zscore cutoff" />
+<meta property="og:description" content="This function removes duplicate subject files from an E-Merge txt file" />
 
 <meta property="og:image" content="https://dr-jt.github.io/datawrangling/logo.png" />
 <meta name="twitter:card" content="summary" />
@@ -111,43 +111,48 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Trim scores</h1>
-    <small class="dont-index">Source: <a href='https://github.com/dr-JT/datawrangling/blob/master/R/trim.R'><code>R/trim.R</code></a></small>
-    <div class="hidden name"><code>trim.Rd</code></div>
+    <h1>Remove duplicate subjects from an edat file</h1>
+    <small class="dont-index">Source: <a href='https://github.com/dr-JT/datawrangling/blob/master/R/duplicates_remove.R'><code>R/duplicates_remove.R</code></a></small>
+    <div class="hidden name"><code>duplicates_remove.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>This function will trim variable(s) based on a zscore cutoff</p>
+    <p>This function removes duplicate subject files from an E-Merge txt file</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>trim</span>(<span class='no'>x</span>, <span class='no'>variables</span>, <span class='kw'>cutoff</span> <span class='kw'>=</span> <span class='fl'>3.5</span>, <span class='kw'>replace</span> <span class='kw'>=</span> <span class='st'>"NA"</span>, <span class='kw'>id</span> <span class='kw'>=</span> <span class='st'>""</span>)</pre>
+    <pre class="usage"><span class='fu'>duplicates_remove</span>(<span class='no'>x</span>, <span class='kw'>timing.variables</span> <span class='kw'>=</span> <span class='st'>"SessionStartDateTimeUtc"</span>,
+  <span class='kw'>subj.variable</span> <span class='kw'>=</span> <span class='st'>"Subject"</span>, <span class='kw'>taskname</span> <span class='kw'>=</span> <span class='st'>""</span>, <span class='kw'>output.folder</span> <span class='kw'>=</span> <span class='st'>""</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>dataframe</p></td>
+      <td><p>Imported E-Merge txt file</p></td>
     </tr>
     <tr>
-      <th>variables</th>
-      <td><p>variables c() to be trimmed</p></td>
+      <th>timing.variables</th>
+      <td><p>Variable name in file that corresponds to the session date and time</p></td>
     </tr>
     <tr>
-      <th>cutoff</th>
-      <td><p>zscore cutoff to use for trimming (default: 3.5)</p></td>
+      <th>subj.variable</th>
+      <td><p>Name of varaible with Subject information</p></td>
     </tr>
     <tr>
-      <th>replace</th>
-      <td><p>What value should the trimmed values be replaced with. (default: replace = "NA")</p></td>
+      <th>taskname</th>
+      <td><p>name of task for saving output file</p></td>
+    </tr>
+    <tr>
+      <th>output.folder</th>
+      <td><p>Folder path to output the duplicate file to</p></td>
     </tr>
     </table>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>trim</span>(<span class='no'>x</span>, <span class='kw'>variables</span> <span class='kw'>=</span> <span class='fu'>c</span>(), <span class='kw'>cutoff</span> <span class='kw'>=</span> <span class='fl'>3.5</span>)</div><div class='output co'>#&gt; <span class='error'>Error in is.data.frame(x): object 'x' not found</span></div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>duplicates_remove</span>(<span class='no'>x</span>, <span class='kw'>subset</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fu'>colnames</span>(<span class='no'>x</span>)), <span class='kw'>context</span> <span class='kw'>=</span> <span class='st'>"Subject"</span>)</div><div class='output co'>#&gt; <span class='error'>Error in duplicates_remove(x, subset = c(colnames(x)), context = "Subject"): unused arguments (subset = c(colnames(x)), context = "Subject")</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

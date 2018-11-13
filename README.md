@@ -4,7 +4,7 @@ This package contains a variety of commonly used functions that simplify the pro
 
 Perform data cleaning procedures with `trim()`, create composite variables with `composite()`, standardize variables with `center()`, and more...
 
-Flexible reshaping of dataframes with `reshape.gather()` and `reshape.spread()`.
+Flexible reshaping of dataframes with `reshape_gather()` and `reshape_spread()`.
 
-Merge or bind (by rows or columns) multiple files located in a specified directory with, `files.merge()` and `files.bind()`.
+Merge or bind (by rows or columns) multiple files located in a specified directory with, `files_join()` and `files_bind()`.
 

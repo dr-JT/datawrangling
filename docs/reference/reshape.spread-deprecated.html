@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Trim scores — trim • datawrangling</title>
+<title>Reshape dataframe from long to wide — reshape.spread-deprecated • datawrangling</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -36,9 +36,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
 
 
-<meta property="og:title" content="Trim scores — trim" />
+<meta property="og:title" content="Reshape dataframe from long to wide — reshape.spread-deprecated" />
 
-<meta property="og:description" content="This function will trim variable(s) based on a zscore cutoff" />
+<meta property="og:description" content="This function is an extension of the `tidyr::spread()` function
+It can `tidyr::spread()` on multiple keys and values." />
 
 <meta property="og:image" content="https://dr-jt.github.io/datawrangling/logo.png" />
 <meta name="twitter:card" content="summary" />
@@ -111,18 +112,20 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Trim scores</h1>
-    <small class="dont-index">Source: <a href='https://github.com/dr-JT/datawrangling/blob/master/R/trim.R'><code>R/trim.R</code></a></small>
-    <div class="hidden name"><code>trim.Rd</code></div>
+    <h1>Reshape dataframe from long to wide</h1>
+    <small class="dont-index">Source: <a href='https://github.com/dr-JT/datawrangling/blob/master/R/reshape.spread.R'><code>R/reshape.spread.R</code></a></small>
+    <div class="hidden name"><code>reshape.spread-deprecated.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>This function will trim variable(s) based on a zscore cutoff</p>
+    <p>This function is an extension of the `tidyr::spread()` function
+It can `tidyr::spread()` on multiple keys and values.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>trim</span>(<span class='no'>x</span>, <span class='no'>variables</span>, <span class='kw'>cutoff</span> <span class='kw'>=</span> <span class='fl'>3.5</span>, <span class='kw'>replace</span> <span class='kw'>=</span> <span class='st'>"NA"</span>, <span class='kw'>id</span> <span class='kw'>=</span> <span class='st'>""</span>)</pre>
+    <pre class="usage"><span class='fu'><a href='datawrangling-deprecated.html'>reshape.spread</a></span>(<span class='no'>x</span>, <span class='kw'>variables</span> <span class='kw'>=</span> <span class='st'>""</span>, <span class='kw'>variables_combine.sep</span> <span class='kw'>=</span> <span class='st'>"_"</span>,
+  <span class='kw'>values</span> <span class='kw'>=</span> <span class='fu'>c</span>(), <span class='kw'>id</span> <span class='kw'>=</span> <span class='st'>""</span>, <span class='kw'>fill</span> <span class='kw'>=</span> <span class='fl'>NA</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -133,29 +136,43 @@
     </tr>
     <tr>
       <th>variables</th>
-      <td><p>variables c() to be trimmed</p></td>
+      <td><p>The variable used for spreading</p></td>
     </tr>
     <tr>
-      <th>cutoff</th>
-      <td><p>zscore cutoff to use for trimming (default: 3.5)</p></td>
+      <th>variables_combine.name</th>
+      <td><p>If using more than one variables column then specify name of a new combined column</p></td>
     </tr>
     <tr>
-      <th>replace</th>
-      <td><p>What value should the trimmed values be replaced with. (default: replace = "NA")</p></td>
+      <th>variables_combine.sep</th>
+      <td><p>if using more than one variables column then specifiy how values should be seperated when combined</p></td>
+    </tr>
+    <tr>
+      <th>values</th>
+      <td><p>A vector of columns that contain the values</p></td>
+    </tr>
+    <tr>
+      <th>id</th>
+      <td><p>What column is not being reorganized and needs to be preserved. Usually "Subject"</p></td>
+    </tr>
+    <tr>
+      <th>fill</th>
+      <td><p>Passed to spread() fill parameter</p></td>
     </tr>
     </table>
     
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>trim</span>(<span class='no'>x</span>, <span class='kw'>variables</span> <span class='kw'>=</span> <span class='fu'>c</span>(), <span class='kw'>cutoff</span> <span class='kw'>=</span> <span class='fl'>3.5</span>)</div><div class='output co'>#&gt; <span class='error'>Error in is.data.frame(x): object 'x' not found</span></div></pre>
+    <div class='dont-index'><p><code><a href='datawrangling-deprecated.html'>datawrangling-deprecated</a></code></p></div>
+    
+
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-            
-      <li><a href="#examples">Examples</a></li>
-    </ul>
+      
+      <li><a href="#see-also">See also</a></li>
+          </ul>
 
   </div>
 </div>

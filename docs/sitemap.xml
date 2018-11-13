@@ -7,31 +7,64 @@
     <loc>https://dr-jt.github.io/datawrangling//reference/center.html</loc>
   </url>
   <url>
-    <loc>https://dr-jt.github.io/datawrangling//reference/code.categorical.html</loc>
+    <loc>https://dr-jt.github.io/datawrangling//reference/code.categorical-deprecated.html</loc>
+  </url>
+  <url>
+    <loc>https://dr-jt.github.io/datawrangling//reference/code_categorical.html</loc>
   </url>
   <url>
     <loc>https://dr-jt.github.io/datawrangling//reference/composite.html</loc>
   </url>
   <url>
-    <loc>https://dr-jt.github.io/datawrangling//reference/duplicates.remove.html</loc>
+    <loc>https://dr-jt.github.io/datawrangling//reference/datawrangling-deprecated.html</loc>
   </url>
   <url>
-    <loc>https://dr-jt.github.io/datawrangling//reference/files.bind.html</loc>
+    <loc>https://dr-jt.github.io/datawrangling//reference/datawrangling.html</loc>
   </url>
   <url>
-    <loc>https://dr-jt.github.io/datawrangling//reference/files.merge.html</loc>
+    <loc>https://dr-jt.github.io/datawrangling//reference/duplicates.remove-deprecated.html</loc>
   </url>
   <url>
-    <loc>https://dr-jt.github.io/datawrangling//reference/remove.latent.html</loc>
+    <loc>https://dr-jt.github.io/datawrangling//reference/duplicates_remove.html</loc>
   </url>
   <url>
-    <loc>https://dr-jt.github.io/datawrangling//reference/remove.save.html</loc>
+    <loc>https://dr-jt.github.io/datawrangling//reference/files.bind-deprecated.html</loc>
   </url>
   <url>
-    <loc>https://dr-jt.github.io/datawrangling//reference/reshape.gather.html</loc>
+    <loc>https://dr-jt.github.io/datawrangling//reference/files.join-deprecated.html</loc>
   </url>
   <url>
-    <loc>https://dr-jt.github.io/datawrangling//reference/reshape.spread.html</loc>
+    <loc>https://dr-jt.github.io/datawrangling//reference/files.merge-deprecated.html</loc>
+  </url>
+  <url>
+    <loc>https://dr-jt.github.io/datawrangling//reference/files_bind.html</loc>
+  </url>
+  <url>
+    <loc>https://dr-jt.github.io/datawrangling//reference/files_join.html</loc>
+  </url>
+  <url>
+    <loc>https://dr-jt.github.io/datawrangling//reference/remove.latent-deprecated.html</loc>
+  </url>
+  <url>
+    <loc>https://dr-jt.github.io/datawrangling//reference/remove.save-deprecated.html</loc>
+  </url>
+  <url>
+    <loc>https://dr-jt.github.io/datawrangling//reference/remove_latent.html</loc>
+  </url>
+  <url>
+    <loc>https://dr-jt.github.io/datawrangling//reference/remove_save.html</loc>
+  </url>
+  <url>
+    <loc>https://dr-jt.github.io/datawrangling//reference/reshape.gather-deprecated.html</loc>
+  </url>
+  <url>
+    <loc>https://dr-jt.github.io/datawrangling//reference/reshape.spread-deprecated.html</loc>
+  </url>
+  <url>
+    <loc>https://dr-jt.github.io/datawrangling//reference/reshape_gather.html</loc>
+  </url>
+  <url>
+    <loc>https://dr-jt.github.io/datawrangling//reference/reshape_spread.html</loc>
   </url>
   <url>
     <loc>https://dr-jt.github.io/datawrangling//reference/se.html</loc>
