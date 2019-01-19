@@ -4,10 +4,36 @@
 \alias{create_study}
 \title{Create Directory Organization For a New Study}
 \usage{
-create_study(scripts.dir = TRUE)
+create_study(scripts.dir = TRUE, data.dir = TRUE, raw.dir = TRUE,
+  messy.dir = TRUE, scored.dir = TRUE, results.dir = TRUE,
+  figures.dir = TRUE, manuscript.dir = TRUE,
+  presentations.dir = TRUE, documents.dir = TRUE, other.dir = c(),
+  masterscript = TRUE)
 }
 \arguments{
 \item{scripts.dir}{Logical. Create script directory? default = TRUE}
+
+\item{data.dir}{Logical. Create data files directory? default = TRUE}
+
+\item{raw.dir}{Logical. Create raw? default = TRUE}
+
+\item{messy.dir}{Logical. Create raw messy directory? default = TRUE}
+
+\item{scored.dir}{Logical. Create scored directory? default = TRUE}
+
+\item{results.dir}{Logical. Create results directory? default = TRUE}
+
+\item{figures.dir}{Logical. Create figures directory? default = TRUE}
+
+\item{manuscript.dir}{Logical. Create manuscript directory? default = TRUE}
+
+\item{presentations.dir}{Logical. Create presentations directory? default = TRUE}
+
+\item{documents.dir}{Logical. Create documents directory? default = TRUE}
+
+\item{other.dir}{List of other directories you want to create}
+
+\item{masterscript}{Logical. Download masterscript template? default = TRUE}
 }
 \description{
 This function can be used to automatically setup your study directory by
