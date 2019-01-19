@@ -29,7 +29,7 @@ create_study <- function(scripts.dir = TRUE, data.dir = TRUE, raw.dir = TRUE,
   if (scripts.dir==TRUE & dir.exists("R Scripts")==FALSE) dir.create("R Scripts")
   if (data.dir==TRUE & dir.exists("Data Files")==FALSE) dir.create("Data Files")
   if (raw.dir==TRUE & dir.exists("Data Files/Raw Data")==FALSE) dir.create("Data Files/Raw Data")
-  if (messy.dir==TRUE & dir.exists(paste("Data Files/Raw Data/", messy.dir, sep = ""))==FALSE) dir.create(paste("Data Files/Raw Data/", mess.dir, sep = ""))
+  if (messy.dir==TRUE & dir.exists(paste("Data Files/Raw Data/", messy.dir, sep = ""))==FALSE) dir.create(paste("Data Files/Raw Data/", messy.dir, sep = ""))
   if (scored.dir==TRUE & dir.exists("Data Files/Scored Data")==FALSE) dir.create("Data Files/Scored Data")
   if (results.dir==TRUE & dir.exists("Results")==FALSE) dir.create("Results")
   if (figures.dir==TRUE & dir.exists("Results/Figures")==FALSE) dir.create("Results/Figures")
