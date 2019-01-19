@@ -10,11 +10,20 @@
 #' @examples
 #' files_bind(path = "./Data", pattern = ".txt")
 
-files_bind <- function(path = "", pattern = "", delim = "\t", na = "", output.file = "", bind = "rows"){
+files_bind <- function(path = "", pattern = "", delim = ",", output.delim = ",", na = "", output.file = "", bind = "rows"){
   filelist <- list.files(path = path, pattern = pattern, full.names = TRUE)
   import <- list()
   for (i in seq_along(filelist)){
-    import[[i]] <- readr::read_delim(filelist[[i]], delim, escape_double = FALSE, trim_ws = TRUE, na = na)
+    if (delim==","){
+      import[[i]] <- readr::read_csv(filelist[[i]])
+    }
+
+    if (delim=="\t"){
+      import[[i]] <- readr::read_delim(filelist[[i]],
+                                       delim,
+                                       escape_double = FALSE,
+                                       trim_ws = TRUE)
+    }
   }
 
   if (bind=="rows"){
@@ -26,7 +35,13 @@ files_bind <- function(path = "", pattern = "", delim = "\t", na = "", output.fi
 
 
   if (output.file!=""){
-    readr::write_delim(bound, path = output.file, delim, na = na)
+    if (output.delim==","){
+      readr::write_csv(bound, output.file, na = na)
+    }
+
+    if (output.delim=="\t"){
+      readr::write_delim(bound, path = output.file, delim, na = na)
+    }
   }
   return(bound)
 }

@@ -20,7 +20,7 @@ duplicates_remove <- function(x, timing.variables = "SessionStartDateTimeUtc", s
   if (output.folder!=""){
     if (nrow(x_duplicated)>0){
       dir.create(output.folder, showWarnings = FALSE)
-      readr::write_delim(x_duplicated, path = paste(output.folder, "/", taskname, "_duplicates.txt", sep = ""), delim = "\t", na = "")
+      readr::write_csv(x_duplicated, paste(output.folder, "/", taskname, "_duplicates.csv", sep = ""), na = "")
     }
   }
 

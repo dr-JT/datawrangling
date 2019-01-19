@@ -30,7 +30,7 @@ remove_latent <- function(x, factor.list, missing.allowed, id, output.dir = NULL
     subj.remove <- unique(x.remove$Subject)
     x <- dplyr::filter(x, !(Subject %in% subj.remove))
   } else {
-    x <- remove.save(x, x.remove, output.dir = output.dir, output.file = output.file)
+    x <- remove_save(x, x.remove, output.dir = output.dir, output.file = output.file)
   }
   return(x)
 }

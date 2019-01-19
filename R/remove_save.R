@@ -15,7 +15,7 @@ remove_save <- function(x, remove, output.dir = NULL, output.file = NULL, id = "
   colnames(x)[which(colnames(x)==id)] <- "Subject"
   if (nrow(remove)>0){
     dir.create(output.dir, showWarnings = FALSE)
-    readr::write_delim(remove, path = paste(output.dir, output.file, sep = "/"), delim = "\t", na = "")
+    readr::write_csv(remove, paste(output.dir, output.file, sep = "/"), na = "")
     colnames(remove)[which(colnames(remove)==id)] <- "Subject"
     subj.remove <- unique(remove$Subject)
     ## Remove them!
