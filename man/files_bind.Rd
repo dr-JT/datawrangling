@@ -4,8 +4,8 @@
 \alias{files_bind}
 \title{Bind multiple files into one file}
 \usage{
-files_bind(path = "", pattern = "", delim = "\\t", na = "",
-  output.file = "", bind = "rows")
+files_bind(path = "", pattern = "", delim = ",",
+  output.delim = ",", na = "", output.file = "", bind = "rows")
 }
 \arguments{
 \item{path}{Folder location of files to be merged}

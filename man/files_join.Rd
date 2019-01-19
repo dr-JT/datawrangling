@@ -4,8 +4,8 @@
 \alias{files_join}
 \title{Merge multiple files into one merged file}
 \usage{
-files_join(path = "", pattern = "", delim = "\\t", na = "",
-  output.file = "", id = NULL)
+files_join(path = "", pattern = "", delim = ",",
+  output.delim = ",", na = "", output.file = "", id = NULL)
 }
 \arguments{
 \item{path}{Folder location of files to be merged}
@@ -13,6 +13,8 @@ files_join(path = "", pattern = "", delim = "\\t", na = "",
 \item{pattern}{Pattern to identify files to be merged}
 
 \item{delim}{Delimiter used in files. Passed onto `readr::read_delim()`}
+
+\item{output.delim}{Delmiter to use when saving data to file (default = ",")}
 
 \item{na}{How are missing values defined in files to be merged. Passed to `readr::write_delim()`}
 
