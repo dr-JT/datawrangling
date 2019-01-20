@@ -14,6 +14,11 @@
 #' @param documents.dir Logical. Create documents directory? default = TRUE
 #' @param other.dir List of other directories you want to create
 #' @param masterscript Logical. Download masterscript template? default = TRUE
+#' @param rawscript Logical. Download rawscript template? default = TRUE
+#' @param scorescript Logical. Download scorescript template? default = TRUE
+#' @param mergescript Logical. Download mergescript template? default = TRUE
+#' @param demographics Logical. Download demographics template? default = TRUE
+#' @param sem Logical. Download sem templates? default = TRUE
 #' @keywords center
 #' @export
 #' @examples
@@ -23,7 +28,9 @@ create_study <- function(scripts.dir = TRUE, data.dir = TRUE, raw.dir = TRUE,
                          messy.dir = TRUE, scored.dir = TRUE, results.dir = TRUE,
                          figures.dir = TRUE, manuscript.dir = TRUE,
                          presentations.dir = TRUE, documents.dir = TRUE,
-                         other.dir = c(), masterscript = TRUE){
+                         other.dir = c(), masterscript = TRUE, rawscript = TRUE,
+                         scorescript = TRUE, mergescript = TRUE, demographics = TRUE,
+                         sem = FALSE){
 
   ## Create directory structure
   if (scripts.dir==TRUE & dir.exists("R Scripts")==FALSE) dir.create("R Scripts")
@@ -41,7 +48,14 @@ create_study <- function(scripts.dir = TRUE, data.dir = TRUE, raw.dir = TRUE,
   }
 
   ## Download Templates
-  if(masterscript==TRUE) download.file("http://englelab.gatech.edu/R/masterscript.R", "./masterscript.R")
-
+  if (masterscript==TRUE) download.file("http://englelab.gatech.edu/R/masterscript.R", "./masterscript.R")
+  if (rawscript==TRUE) download.file("http://englelab.gatech.edu/R/1_taskname1_raw.R", "R Scripts/1_taskname1_raw.R")
+  if (scorescript==TRUE) download.file("http://englelab.gatech.edu/R/2_taskname1_score.R", "R Scripts/2_taskname1_score.R")
+  if (mergescript==TRUE) download.file("http://englelab.gatech.edu/R/3_merge.R", "R Scripts/3_merge.R")
+  if (demographics==TRUE) download.file("http://englelab.gatech.edu/R/4_Demographics.Rmd", "R Scripts/4_Demographics.Rmd")
+  if (sem==TRUE){
+    download.file("http://englelab.gatech.edu/R/4_Correlations.Rmd", "R Scripts/4_Correlations.Rmd")
+    download.file("http://englelab.gatech.edu/R/5_MainAnalyses.Rmd", "R Scripts/5_MainAnalyses.Rmd")
+  }
 }
 

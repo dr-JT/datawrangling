@@ -8,7 +8,8 @@ create_study(scripts.dir = TRUE, data.dir = TRUE, raw.dir = TRUE,
   messy.dir = TRUE, scored.dir = TRUE, results.dir = TRUE,
   figures.dir = TRUE, manuscript.dir = TRUE,
   presentations.dir = TRUE, documents.dir = TRUE, other.dir = c(),
-  masterscript = TRUE)
+  masterscript = TRUE, rawscript = TRUE, scorescript = TRUE,
+  mergescript = TRUE, demographics = TRUE, sem = FALSE)
 }
 \arguments{
 \item{scripts.dir}{Logical. Create script directory? default = TRUE}
@@ -34,6 +35,16 @@ create_study(scripts.dir = TRUE, data.dir = TRUE, raw.dir = TRUE,
 \item{other.dir}{List of other directories you want to create}
 
 \item{masterscript}{Logical. Download masterscript template? default = TRUE}
+
+\item{rawscript}{Logical. Download rawscript template? default = TRUE}
+
+\item{scorescript}{Logical. Download scorescript template? default = TRUE}
+
+\item{mergescript}{Logical. Download mergescript template? default = TRUE}
+
+\item{demographics}{Logical. Download demographics template? default = TRUE}
+
+\item{sem}{Logical. Download sem templates? default = TRUE}
 }
 \description{
 This function can be used to automatically setup your study directory by
