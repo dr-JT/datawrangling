@@ -41,7 +41,7 @@ create_study <- function(scripts.dir = TRUE, data.dir = TRUE, raw.dir = TRUE,
   }
 
   ## Download Templates
-  if(masterscript==TRUE) download.file("http://englelab.gatech.edu/R/masterscript.R", ".")
+  if(masterscript==TRUE) download.file("http://englelab.gatech.edu/R/masterscript.R", "./masterscript.R")
 
 }
 
