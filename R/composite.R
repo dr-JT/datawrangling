@@ -12,7 +12,7 @@
 #' @examples
 #' composite(x, variable = c(), type = "mean", name = "name")
 
-composite <- function (x, variables, type = "mean", standardize = FALSE, name = NULL, missing.allowed = NULL){
+composite <- function (x, variables, type = "mean", standardize = TRUE, name = NULL, missing.allowed = NULL){
   # Compute z-scores if standardize==TRUE
   if (standardize==TRUE){
     for (variable in colnames(x[variables])){
