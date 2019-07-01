@@ -14,13 +14,12 @@ duplicates_remove <- function(x, timing.variables = c("SessionDate", "SessionTim
                               subj.variable = "Subject", taskname = "",
                               output.folder = ""){
   x_duplicates <- x[,c(subj.variable, timing.variables)]
-  subj_identical <- x_duplicates[which(duplicated(x_duplicates)),]
-
-  subj_duplicate <- dplyr::distinct(x_duplicates)
+  x_duplicates <- dplyr::distinct(x_duplicates)
   subj_duplicate <- subj_duplicate[which(duplicated(subj_duplicate[, subj.variable])),]
+  subj_duplicate <- subj_duplicate[[subj.variable]]
 
-  subj_list <- c(subj_identical[[subj.variable]], subj_duplicate[[subj.variable]])
   x_duplicates <- x_duplicates[which(x_duplicates[[subj.variable]] %in% subj_list), ]
+  x_duplicates <- dplyr::arrange(x_duplicates, get(subj.variable))
   x <- x[which(!(x[[subj.variable]] %in% subj_list)),]
 
   if (output.folder!=""){
