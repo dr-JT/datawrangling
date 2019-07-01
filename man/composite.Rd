@@ -4,7 +4,7 @@
 \alias{composite}
 \title{Create a compositve variable}
 \usage{
-composite(x, variables, type = "mean", standardize = FALSE,
+composite(x, variables, type = "mean", standardize = TRUE,
   name = NULL, missing.allowed = NULL)
 }
 \arguments{
