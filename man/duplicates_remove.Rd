@@ -4,7 +4,7 @@
 \alias{duplicates_remove}
 \title{Remove duplicate subjects from an edat file}
 \usage{
-duplicates_remove(x, timing.variables = "SessionStartDateTimeUtc",
+duplicates_remove(x, timing.variables = c("SessionDate", "SessionTime"),
   subj.variable = "Subject", taskname = "", output.folder = "")
 }
 \arguments{
