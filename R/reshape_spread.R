@@ -34,6 +34,7 @@ reshape_spread <- function(x, variables = "", variables_combine.sep = "_", value
       y[[i]] <- tidyr::spread(y[[i]], key = variables, value = values[i], fill = fill)
       colnames(y[[i]])[which(colnames(y[[i]])!=id)] <- paste(colnames(y[[i]])[which(colnames(y[[i]])!=id)],
                                                    values[i], sep = "_")
+      y[[i]] <- as.data.frame(y[[i]])
     }
     x <- plyr::join_all(y, by = id, type = "full")
   }
