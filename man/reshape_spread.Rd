@@ -10,7 +10,8 @@ reshape_spread(x, variables = "", variables_combine.sep = "_",
 \arguments{
 \item{x}{dataframe}
 
-\item{variables}{The variable used for spreading}
+\item{variables}{The variable used for spreading
+(The variables/conditions that values are grouped within)}
 
 \item{variables_combine.sep}{if using more than one variables column then specifiy how values should be seperated when combined}
 
@@ -27,6 +28,5 @@ This function is an extension of the `tidyr::spread()` function
 It can `tidyr::spread()` on multiple keys and values.
 }
 \examples{
-reshape_spread(x, variables = "variable", values = c("value1", "value2"), by = "Subject")
+
 }
-\keyword{reshape}
