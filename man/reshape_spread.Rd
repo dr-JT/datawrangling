@@ -4,8 +4,9 @@
 \alias{reshape_spread}
 \title{Reshape dataframe from long to wide}
 \usage{
-reshape_spread(x, variables = "", variables_combine.sep = "_",
-  values = c(), id = "", fill = NA)
+reshape_spread(x, variables = "", values = c(), id = "",
+  colname.order = "variable_value", variables_combine.sep = "_",
+  fill = NA)
 }
 \arguments{
 \item{x}{dataframe}
@@ -13,15 +14,18 @@ reshape_spread(x, variables = "", variables_combine.sep = "_",
 \item{variables}{The variable used for spreading
 (The variables/conditions that values are grouped within)}
 
-\item{variables_combine.sep}{if using more than one variables column then specifiy how values should be seperated when combined}
-
 \item{values}{A vector of columns that contain the values}
 
-\item{id}{What column is not being reorganized and needs to be preserved. Usually "Subject"}
+\item{id}{What column is not being reorganized and needs to be preserved.
+Usually "Subject"}
+
+\item{colname.order}{The variable/value order to use when naming new columns.
+"variable_value" or "value_variable"}
+
+\item{variables_combine.sep}{if using more than one variables column then
+specifiy how values should be seperated when combined}
 
 \item{fill}{Passed to spread() fill parameter}
-
-\item{variables_combine.name}{If using more than one variables column then specify name of a new combined column}
 }
 \description{
 This function is an extension of the `tidyr::spread()` function
