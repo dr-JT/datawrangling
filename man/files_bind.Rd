@@ -5,7 +5,8 @@
 \title{Bind multiple files into one file}
 \usage{
 files_bind(path = "", pattern = "", delim = ",",
-  output.delim = ",", output.file = "", bind = "rows", ...)
+  output.delim = ",", output.file = "", bind = "rows",
+  guess_max = 1000)
 }
 \arguments{
 \item{path}{Folder location of files to be merged}
@@ -15,6 +16,8 @@ files_bind(path = "", pattern = "", delim = ",",
 \item{delim}{Delimiter used in files. Passed onto `readr::read_delim()`}
 
 \item{output.file}{File name and path to be saved to.}
+
+\item{guess_max}{Maximum}
 }
 \description{
 This function binds multiple files together. `bind` can occur by "rows" or "columns"

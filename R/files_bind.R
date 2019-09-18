@@ -5,13 +5,14 @@
 #' @param pattern Pattern to identify files to be merged
 #' @param delim Delimiter used in files. Passed onto `readr::read_delim()`
 #' @param output.file File name and path to be saved to.
+#' @param guess_max Maximum
 #' @export
 #' @examples
 #' files_bind(path = "./Data", pattern = ".txt")
 
 files_bind <- function(path = "", pattern = "", delim = ",",
                        output.delim = ",", output.file = "",
-                       bind = "rows", ...){
+                       bind = "rows", guess_max = 1000){
   filelist <- list.files(path = path, pattern = pattern, full.names = TRUE)
   import <- list()
   for (i in seq_along(filelist)){
