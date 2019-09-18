@@ -4,13 +4,14 @@
 #' @param path Folder location of files to be merged
 #' @param pattern Pattern to identify files to be merged
 #' @param delim Delimiter used in files. Passed onto `readr::read_delim()`
-#' @param na How are missing values defined in files to be merged. Passed to `readr::write_delim()`
 #' @param output.file File name and path to be saved to.
 #' @export
 #' @examples
 #' files_bind(path = "./Data", pattern = ".txt")
 
-files_bind <- function(path = "", pattern = "", delim = ",", output.delim = ",", na = "", output.file = "", bind = "rows"){
+files_bind <- function(path = "", pattern = "", delim = ",",
+                       output.delim = ",", output.file = "",
+                       bind = "rows"){
   filelist <- list.files(path = path, pattern = pattern, full.names = TRUE)
   import <- list()
   for (i in seq_along(filelist)){
@@ -36,11 +37,11 @@ files_bind <- function(path = "", pattern = "", delim = ",", output.delim = ",",
 
   if (output.file!=""){
     if (output.delim==","){
-      readr::write_csv(bound, output.file, na = na)
+      readr::write_csv(bound, output.file)
     }
 
     if (output.delim=="\t"){
-      readr::write_delim(bound, path = output.file, delim, na = na)
+      readr::write_delim(bound, path = output.file, delim)
     }
   }
   return(bound)

@@ -5,7 +5,7 @@
 \title{Bind multiple files into one file}
 \usage{
 files_bind(path = "", pattern = "", delim = ",",
-  output.delim = ",", na = "", output.file = "", bind = "rows")
+  output.delim = ",", output.file = "", bind = "rows")
 }
 \arguments{
 \item{path}{Folder location of files to be merged}
@@ -13,8 +13,6 @@ files_bind(path = "", pattern = "", delim = ",",
 \item{pattern}{Pattern to identify files to be merged}
 
 \item{delim}{Delimiter used in files. Passed onto `readr::read_delim()`}
-
-\item{na}{How are missing values defined in files to be merged. Passed to `readr::write_delim()`}
 
 \item{output.file}{File name and path to be saved to.}
 }
