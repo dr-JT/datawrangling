@@ -18,7 +18,7 @@ files_bind <- function(path = "", pattern = "", delim = ",", output.delim = ",",
       import[[i]] <- readr::read_csv(filelist[[i]])
     }
 
-    if (delim=="\t"){
+    if (delim != ","){
       import[[i]] <- readr::read_delim(filelist[[i]],
                                        delim,
                                        escape_double = FALSE,
