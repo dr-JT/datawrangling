@@ -11,19 +11,20 @@
 
 files_bind <- function(path = "", pattern = "", delim = ",",
                        output.delim = ",", output.file = "",
-                       bind = "rows"){
+                       bind = "rows", ...){
   filelist <- list.files(path = path, pattern = pattern, full.names = TRUE)
   import <- list()
   for (i in seq_along(filelist)){
     if (delim==","){
-      import[[i]] <- readr::read_csv(filelist[[i]])
+      import[[i]] <- readr::read_csv(filelist[[i]], guess_max = guess_max)
     }
 
     if (delim != ","){
       import[[i]] <- readr::read_delim(filelist[[i]],
                                        delim,
                                        escape_double = FALSE,
-                                       trim_ws = TRUE)
+                                       trim_ws = TRUE,
+                                       guess_max = guess_max)
     }
   }
 
