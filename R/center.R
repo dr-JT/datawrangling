@@ -32,7 +32,7 @@ center <- function(x, variables = c(colnames(x)), standardize = FALSE,
         names(x)[which(names(x) == "hold")] <- paste(variable, suffix, sep = "")
       }
 
-    } else if (standardize == TRUE & is.null(suffix)){
+    } else if (standardize == TRUE){
       if (is.null(suffix)) {
         names(x)[which(names(x) == "hold")] <- paste(variable, "_z", sep = "")
       } else {
