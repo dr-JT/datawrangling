@@ -23,7 +23,7 @@ center <- function(x, variables = c(colnames(x)), standardize = FALSE,
                                     scale = standardize))
     x$hold <- as.vector(x$hold)
     if (drop == TRUE) {
-      x <- x[, -which(colnames(x) %in% variable)]
+      x <- x[, -which(colnames(x) == variable)]
     }
     if (standardize == FALSE){
       if (is.null(suffix)) {
