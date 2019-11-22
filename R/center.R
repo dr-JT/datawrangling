@@ -9,11 +9,12 @@
 #' @param standardize Logical. Do you want to calculate
 #' zscores? (Default = FALSE)
 #' @param drop Drop original non-centered variables
+#' @param suffix Suffix to add at the end of the column names. Default = NULL
 #' @export
 #'
 
 center <- function(x, variables = c(colnames(x)), standardize = FALSE,
-                   drop = FALSE){
+                   drop = FALSE, suffix = NULL){
   # Perform this function for each variable specified
   for (variable in colnames(x[variables])){
     # Calculate centered scores using the scale() function
@@ -21,10 +22,20 @@ center <- function(x, variables = c(colnames(x)), standardize = FALSE,
                        hold = scale(get(variable), center = TRUE,
                                     scale = standardize))
     x$hold <- as.vector(x$hold)
-    if (standardize==FALSE){
-      names(x)[which(names(x)=="hold")] <- paste(variable, "_c", sep = "")
-    } else if (standardize==TRUE){
-      names(x)[which(names(x)=="hold")] <- paste(variable, "_z", sep = "")
+    if (standardize == FALSE){
+      if (is.null(suffix)) {
+        names(x)[which(names(x) == "hold")] <- paste(variable, "_c", sep = "")
+      } else {
+        names(x)[which(names(x) == "hold")] <- paste(variable, suffix, sep = "")
+      }
+
+    } else if (standardize == TRUE & is.null(suffix)){
+      if (is.null(suffix)) {
+        names(x)[which(names(x) == "hold")] <- paste(variable, "_z", sep = "")
+      } else {
+        names(x)[which(names(x) == "hold")] <- paste(variable, suffix, sep = "")
+      }
+
     }
   }
 

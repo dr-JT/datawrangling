@@ -5,7 +5,7 @@
 \title{Create a column of centered variables}
 \usage{
 center(x, variables = c(colnames(x)), standardize = FALSE,
-  drop = FALSE)
+  drop = FALSE, suffix = NULL)
 }
 \arguments{
 \item{x}{dataframe}
@@ -16,6 +16,8 @@ center(x, variables = c(colnames(x)), standardize = FALSE,
 zscores? (Default = FALSE)}
 
 \item{drop}{Drop original non-centered variables}
+
+\item{suffix}{Suffix to add at the end of the column names. Default = NULL}
 }
 \description{
 This function centers a variable around the mean. To create z-scores,
