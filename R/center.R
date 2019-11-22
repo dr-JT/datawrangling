@@ -22,6 +22,9 @@ center <- function(x, variables = c(colnames(x)), standardize = FALSE,
                        hold = scale(get(variable), center = TRUE,
                                     scale = standardize))
     x$hold <- as.vector(x$hold)
+    if (drop == TRUE) {
+      x <- x[, -which(colnames(x) %in% variable)]
+    }
     if (standardize == FALSE){
       if (is.null(suffix)) {
         names(x)[which(names(x) == "hold")] <- paste(variable, "_c", sep = "")
@@ -37,10 +40,6 @@ center <- function(x, variables = c(colnames(x)), standardize = FALSE,
       }
 
     }
-  }
-
-  if (drop == TRUE) {
-    x <- x[, -which(colnames(x) %in% variables)]
   }
 
   return(x)
