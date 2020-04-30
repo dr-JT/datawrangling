@@ -12,7 +12,7 @@
 
 trim <- function(x, variables, cutoff = 3.5, replace = "NA", id = ""){
   col.order <- colnames(x)
-  if (variables=="all"){
+  if ("all" %in% variables){
     variables <- colnames(x)[which(colnames(x)!=id)]
   }
 
