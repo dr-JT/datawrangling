@@ -6,13 +6,13 @@
 #' @param unique Column names that are unique and should be used to
 #'     check for duplicate id's
 #' @param n Number of unique id's expected (default: 1)
-#' @param remove logical. Remove duplicate ids from data?
+#' @param remove logical. Remove duplicate ids from data? (default: TRUE)
 #' @param save_as Folder path and file name to output the duplicate ID's
 #' @export
 
 duplicates_check <- function(x, id = "Subject",
                              unique = c("SessionDate", "SessionTime"),
-                             save_as = NULL, n = 1){
+                             n = 1, remove = TRUE, save_as = NULL){
   # get duplicate ids
   duplicates <- dplyr::select(x, id, unique)
   duplicates <- dplyr::distinct(duplicates)
