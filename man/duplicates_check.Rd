@@ -8,6 +8,8 @@ duplicates_check(
   x,
   id = "Subject",
   unique = c("SessionDate", "SessionTime"),
+  n = 1,
+  remove = TRUE,
   save_as = NULL
 )
 }
@@ -19,11 +21,11 @@ duplicates_check(
 \item{unique}{Column names that are unique and should be used to
 check for duplicate id's}
 
+\item{n}{Number of unique id's expected (default: 1)}
+
+\item{remove}{logical. Remove duplicate ids from data? (default: TRUE)}
+
 \item{save_as}{Folder path and file name to output the duplicate ID's}
-
-\item{n}{Number of unique id's expected}
-
-\item{remove}{logical. Remove duplicate ids from data?}
 }
 \description{
 This function checks and removes duplicate ids
