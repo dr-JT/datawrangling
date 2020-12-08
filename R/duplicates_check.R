@@ -38,14 +38,14 @@ duplicates_check <- function(x, id = "Subject",
     ids_duplicates <- duplicates[[id]]
     if (remove == TRUE) {
       x <- dplyr::filter(x, !(get(id) %in% ids_duplicates))
-      message("duplicates_check: Duplicate IDs found AND removed")
-      message(ids_duplicates)
+      message("duplicates_check: Duplicate IDs found AND removed!")
+      message(cat(ids_duplicates))
     } else {
-      message("duplicates_check: Duplicate IDs found but not removed")
-      message(ids_duplicates)
+      message("duplicates_check: Duplicate IDs found but not removed!")
+      message(cat(ids_duplicates))
     }
   } else {
-    message("No duplicate IDs found!")
+    message("duplicates_check: No duplicate IDs found!")
   }
   return(x)
 }
