@@ -18,7 +18,7 @@ duplicates_check <- function(x, id = "Subject",
   duplicates <- dplyr::distinct(duplicates)
   duplicates <- dplyr::group_by(duplicates, get(id))
   duplicates <- dplyr::mutate(duplicates, count = n())
-  duplicates <- dplyr::ungroup()
+  duplicates <- dplyr::ungroup(duplicates)
   duplicates <- dplyr::filter(duplicates, count > n)
   duplicates <- dplyr::select(duplicates, id, unique)
 
