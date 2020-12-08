@@ -8,7 +8,7 @@
 #' @param n Number of unique id's expected
 #' @param remove logical. Remove duplicate ids from data?
 #' @param save_as Folder path and file name to output the duplicate ID's
-#'
+#' @export
 
 duplicates_check <- function(x, id = "Subject",
                              unique = c("SessionDate", "SessionTime"),

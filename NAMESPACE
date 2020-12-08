@@ -3,6 +3,7 @@
 export(center)
 export(code_categorical)
 export(composite)
+export(duplicates_check)
 export(duplicates_remove)
 export(files_bind)
 export(files_join)
