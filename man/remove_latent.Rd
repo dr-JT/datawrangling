@@ -4,8 +4,14 @@
 \alias{remove_latent}
 \title{Remove subjects with too much missing data on a given latent construct}
 \usage{
-remove_latent(x, factor.list, missing.allowed, id, output.dir = NULL,
-  output.file = NULL)
+remove_latent(
+  x,
+  factor.list,
+  missing.allowed,
+  id,
+  output.dir = NULL,
+  output.file = NULL
+)
 }
 \arguments{
 \item{x}{dataframe}

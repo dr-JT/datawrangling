@@ -4,8 +4,14 @@
 \alias{composite}
 \title{Create a compositve variable}
 \usage{
-composite(x, variables, type = "mean", standardize = TRUE,
-  name = NULL, missing.allowed = NULL)
+composite(
+  x,
+  variables,
+  type = "mean",
+  standardize = TRUE,
+  name = NULL,
+  missing.allowed = NULL
+)
 }
 \arguments{
 \item{x}{dataframe}

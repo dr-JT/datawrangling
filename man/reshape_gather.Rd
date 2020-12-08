@@ -4,8 +4,7 @@
 \alias{reshape_gather}
 \title{Reshape dataframe from wide to long}
 \usage{
-reshape_gather(x, variable.names, values, id = NULL,
-  separate.pattern = NULL)
+reshape_gather(x, variable.names, values, id = NULL, separate.pattern = NULL)
 }
 \arguments{
 \item{x}{dataframe}

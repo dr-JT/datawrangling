@@ -4,8 +4,15 @@
 \alias{files_join}
 \title{Merge multiple files into one merged file}
 \usage{
-files_join(path = "", pattern = "", delim = ",",
-  output.delim = ",", na = "", output.file = "", id = NULL)
+files_join(
+  path = "",
+  pattern = "",
+  delim = ",",
+  output.delim = ",",
+  na = "",
+  output.file = "",
+  id = NULL
+)
 }
 \arguments{
 \item{path}{Folder location of files to be merged}

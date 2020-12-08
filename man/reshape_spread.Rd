@@ -4,9 +4,15 @@
 \alias{reshape_spread}
 \title{Reshape dataframe from long to wide}
 \usage{
-reshape_spread(x, variables = "", values = c(), id = "",
-  colname.order = "variable_value", variables_combine.sep = "_",
-  fill = NA)
+reshape_spread(
+  x,
+  variables = "",
+  values = c(),
+  id = "",
+  colname.order = "variable_value",
+  variables_combine.sep = "_",
+  fill = NA
+)
 }
 \arguments{
 \item{x}{dataframe}

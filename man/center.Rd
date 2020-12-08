@@ -4,8 +4,13 @@
 \alias{center}
 \title{Create a column of centered variables}
 \usage{
-center(x, variables = c(colnames(x)), standardize = FALSE,
-  drop = FALSE, suffix = NULL)
+center(
+  x,
+  variables = c(colnames(x)),
+  standardize = FALSE,
+  drop = FALSE,
+  suffix = NULL
+)
 }
 \arguments{
 \item{x}{dataframe}

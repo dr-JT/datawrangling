@@ -4,8 +4,7 @@
 \alias{remove_save}
 \title{Remove outliers/bad subjects}
 \usage{
-remove_save(x, remove, output.dir = NULL, output.file = NULL,
-  id = "Subject")
+remove_save(x, remove, output.dir = NULL, output.file = NULL, id = "Subject")
 }
 \arguments{
 \item{x}{dataframe}

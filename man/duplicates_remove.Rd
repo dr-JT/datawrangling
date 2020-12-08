@@ -4,8 +4,13 @@
 \alias{duplicates_remove}
 \title{Remove duplicate subjects from an edat file}
 \usage{
-duplicates_remove(x, timing.variables = c("SessionDate", "SessionTime"),
-  subj.variable = "Subject", taskname = "", output.folder = "")
+duplicates_remove(
+  x,
+  timing.variables = c("SessionDate", "SessionTime"),
+  subj.variable = "Subject",
+  taskname = "",
+  output.folder = ""
+)
 }
 \arguments{
 \item{x}{Imported E-Merge txt file}
