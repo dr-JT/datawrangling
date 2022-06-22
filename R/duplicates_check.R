@@ -46,13 +46,13 @@ duplicates_check <- function(x, id = "Subject",
         message("duplicates_check: Duplicate IDs found AND removed!")
       }
       if (keep == "first by date") {
-        remove <- dplyr::group_by(duplicates, dplyr::across(id))
-        remove <- dplyr::arrange(remove, dplyr::across(unique))
-        remove <- dplyr::slice(remove, -1)
-        x <- dplyr::anti_join(x, remove,  by = c(id, unique))
+        remove_bydate <- dplyr::group_by(duplicates, dplyr::across(id))
+        remove_bydate <- dplyr::arrange(remove_bydate, dplyr::across(unique))
+        remove_bydate <- dplyr::slice(remove_bydate, -1)
+        x <- dplyr::anti_join(x, remove_bydate,  by = c(id, unique))
         message("duplicates_check: Kept one duplicate that occured first by date.",
                 " All others were removed.")
-        ids_remove <- remove[[id]]
+        ids_remove <- remove_bydate[[id]]
       }
 
       message(cat(ids_remove))
