@@ -10,6 +10,7 @@ duplicates_check(
   unique = c("SessionDate", "SessionTime"),
   n = 1,
   remove = TRUE,
+  keep = "none",
   save_as = NULL
 )
 }
@@ -24,6 +25,9 @@ check for duplicate id's}
 \item{n}{Number of unique id's expected (default: 1)}
 
 \item{remove}{logical. Remove duplicate ids from data? (default: TRUE)}
+
+\item{keep}{If remove = TRUE, should one or more of the dupilcate id's be kept?
+options: "none", "first by date"}
 
 \item{save_as}{Folder path and file name to output the duplicate ID's}
 }

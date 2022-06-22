@@ -7,20 +7,23 @@
 #'     check for duplicate id's
 #' @param n Number of unique id's expected (default: 1)
 #' @param remove logical. Remove duplicate ids from data? (default: TRUE)
+#' @param keep If remove = TRUE, should one or more of the dupilcate id's be kept?
+#'     options: "none", "first by date"
 #' @param save_as Folder path and file name to output the duplicate ID's
 #' @export
 
 duplicates_check <- function(x, id = "Subject",
                              unique = c("SessionDate", "SessionTime"),
-                             n = 1, remove = TRUE, save_as = NULL){
+                             n = 1, remove = TRUE, keep = "none",
+                             save_as = NULL){
   # get duplicate ids
-  duplicates <- dplyr::select(x, id, unique)
+  duplicates <- dplyr::select(x, id, dplyr::all_of(unique))
   duplicates <- dplyr::distinct(duplicates)
-  duplicates <- dplyr::group_by(duplicates, get(id))
+  duplicates <- dplyr::group_by(duplicates, dplyr::across(id))
   duplicates <- dplyr::mutate(duplicates, count = n())
   duplicates <- dplyr::ungroup(duplicates)
   duplicates <- dplyr::filter(duplicates, count > n)
-  duplicates <- dplyr::select(duplicates, id, unique)
+  duplicates <- dplyr::select(duplicates, id, dplyr::all_of(unique))
 
   # save duplicates to file
   if (!is.null(save_as)) {
@@ -35,15 +38,31 @@ duplicates_check <- function(x, id = "Subject",
 
   # remove duplicates
   if (nrow(duplicates) > 0) {
-    ids_duplicates <- duplicates[[id]]
+
     if (remove == TRUE) {
-      x <- dplyr::filter(x, !(get(id) %in% ids_duplicates))
-      message("duplicates_check: Duplicate IDs found AND removed!")
-      message(cat(ids_duplicates))
-    } else {
-      message("duplicates_check: Duplicate IDs found but not removed!")
-      message(cat(ids_duplicates))
+      if (keep == "none") {
+        ids_remove <- duplicates[[id]]
+        x <- dplyr::filter(x, !(get(id) %in% ids_remove))
+        message("duplicates_check: Duplicate IDs found AND removed!")
+      }
+      if (keep == "first by date") {
+        remove <- dplyr::group_by(duplicates, dplyr::across(id))
+        remove <- dplyr::arrange(remove, dplyr::across(unique))
+        remove <- dplyr::slice(remove, -1)
+        x <- dplyr::anti_join(x, remove,  by = c(id, unique))
+        message("duplicates_check: Kept one duplicate that occured first by date.",
+                " All others were removed.")
+        ids_remove <- remove[[id]]
+      }
+
+      message(cat(ids_remove))
     }
+
+    if (remove == FALSE) {
+      message("duplicates_check: Duplicate IDs found but not removed!")
+      message(cat(duplicates[[id]]))
+    }
+
   } else {
     message("duplicates_check: No duplicate IDs found!")
   }
